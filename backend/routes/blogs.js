@@ -42,7 +42,7 @@ router.route('/update/:id').post((req, res) => {
         blog.date = Date.parse(req.body.date);
   
         blog.save()
-          .then(() => res.json('Blog updated! Branch'))
+          .then(() => res.json('Blog updated! Branch    Pom test'))
           .catch(err => res.status(400).json('Error: ' + err));
       })
       .catch(err => res.status(400).json('Error: ' + err));
