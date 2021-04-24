@@ -15,11 +15,11 @@ app.listen(port, () => {console.log(`Server is running on port: ${port} eiei`);}
 );
 
 
-var usersRouter = require('./routes/users');
+const usersRouter = require('./routes/user_register');
 var blogRounter = require('./routes/blogs')
 
 // app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/register', usersRouter);
 app.use('/blogs', blogRounter);
 
 const uri = process.env.ATLAS_URI;
