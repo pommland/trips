@@ -20,7 +20,7 @@ const loginRouter = require('./routes/user_login');
 var blogRounter = require('./routes/blogs');
 
 // app.use('/', indexRouter);
-app.use('/register', usersRouter); // Registor
+app.use('/api', usersRouter); // Registor
 app.use('/login', loginRouter);
 app.use('/blogs', blogRounter); // Blog
 

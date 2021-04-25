@@ -7,8 +7,8 @@ const userSchema = new Schema({
   password: { type: String, required: true , minlength: 8 },
   email: { type: String, required: true },
   roles: { type: Number, required: true }, // Role 1 = ลูกค้า 2 = ผู้บริการ
-  address : {type : String}, 
-  Tel : {type : String},
+  address : {type : String , default : ""}, 
+  Tel : {type : String, default : ""},
   }, 
   {timestamps: true,}
   
