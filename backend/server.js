@@ -18,11 +18,13 @@ app.listen(port, () => {console.log(`Server is running on port: ${port} eiei`);}
 const usersRouter = require('./routes/user_register');
 const loginRouter = require('./routes/user_login');
 var blogRounter = require('./routes/blogs');
+var tripRounter = require('./routes/trips');
 
 // app.use('/', indexRouter);
 app.use('/register', usersRouter); // Registor
 app.use('/login', loginRouter);
 app.use('/blogs', blogRounter); // Blog
+app.use('/trips', tripRounter); 
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true ,useUnifiedTopology: true}
