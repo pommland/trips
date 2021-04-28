@@ -1,11 +1,11 @@
-const Bcrypt = require("bcryptjs");
 const router = require('express').Router();
 let User = require('../models/user.model');
 
 //Load controllers
 const {
   registerController,
-  activationController
+  activationController,
+  signinController
 } = require('../controllers/auth_controller')
 
 
@@ -18,28 +18,13 @@ router.route('/').get((req, res) => { // Get All User
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post( // Add User
-  registerController
-  /*const username = req.body.username;
-  const password = Bcrypt.hashSync(req.body.password);
-  const email = req.body.email;
-  const roles = Number(req.body.roles);
-  const address = "";
-  const Tel = "";
-  const newUser = new User({
-    username,
-    password,
-    email,
-    roles,
-    address,
-    Tel
-  });
+router.route('/register').post( // register User
+  registerController);
 
-  newUser.save()
-    .then(() => res.json('User added!'))
-    .catch(err => res.status(400).json('Error: ' + err));*/);
+router.post('/activation', activationController) // activate user
 
-router.post('/activation', activationController)
+router.route('/login').post( // Add User
+  signinController);
 
 router.route('/:id').get((req, res) => { // get user by id
   User.findById(req.params.id)
