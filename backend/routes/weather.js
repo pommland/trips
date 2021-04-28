@@ -10,7 +10,7 @@ router.post('/updateWeather', (req, res) => {
     .then(data => {
         newData = data;
         var len = Number(newData.Stations.length);
-
+        // console.log(data.Stations);
         for (let i = 0; i < len; i++) {
             const weather = newData.Stations[i];
             // console.log(JSON.stringify(weather.Observe["TotalCloud"]));
@@ -36,10 +36,15 @@ router.post('/updateWeather', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.route('/').get((req, res) => { // Get All User
-    Weather.find()
-      .then(weather => res.json(weather))
+router.route('/ww').get((req, res) => { // Get Specific Weather by Province
+    Weather.findOne({Province: req.body.Province})
+      .then(weather => {
+            res.json(weather)
+            console.log(weather.Time);
+        })
       .catch(err => res.status(400).json('Error: ' + err));
   });
+
+  
 
 module.exports = router;
