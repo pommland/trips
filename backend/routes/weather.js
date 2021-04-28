@@ -36,7 +36,7 @@ router.post('/updateWeather', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.route('/ww').get((req, res) => { // Get Specific Weather by Province
+router.route('/getWeather').get((req, res) => { // Get Specific Weather by Province
     Weather.findOne({Province: req.body.Province})
       .then(weather => {
             res.json(weather)
