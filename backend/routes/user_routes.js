@@ -5,7 +5,9 @@ let User = require('../models/user.model');
 const {
   registerController,
   activationController,
-  signinController
+  signinController,
+  forgotPasswordController,
+  resetPasswordController
 } = require('../controllers/auth_controller')
 
 
@@ -25,6 +27,12 @@ router.post('/activation', activationController) // activate user
 
 router.route('/login').post( // Add User
   signinController);
+
+router.route('/forget').post( // Forget password send to email
+  forgotPasswordController);
+
+router.route('/reset').post( // reset by token(resetlink) -> find db - > edit
+  resetPasswordController);
 
 router.route('/:id').get((req, res) => { // get user by id
   User.findById(req.params.id)
