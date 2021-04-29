@@ -20,30 +20,36 @@ router.route('/transport').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
-  router.route('/:transport/').get((req, res) => {  
-    Trip.findOne({transport: req.params.transport})
-      .then(transport => res.json(transport))
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
-
-  // router.route('/:transport').get((req, res) => {  
+  // router.route('/:transport/').get((req, res) => {  
   //   Trip.findOne({transport: req.params.transport})
-  //      .then(transport => console.log(transport.source_dest[0]))
-  //      .then(transport => res.json(transport.source_dest[0]))
-  //     // .then(transport => res.json(transport))
-  //     .catch(err => res.status(400).json('Error: ' + err));
-  // });
-
-  // router.route('/:transport/:id').get((req, res) => {     
-  //   Trip.findOne({source_dest: req.params.transport.})
   //     .then(transport => res.json(transport))
   //     .catch(err => res.status(400).json('Error: ' + err));
   // });
 
+  router.route('/:transport').get((req, res) => {  
+    Trip.findOne({transport: req.params.transport})
+       .then(transport => console.log(transport.source_dest[0]))
+      //  .then(transport => res.json(transport.source_dest[0]))
+      // .then(transport => res.json(transport))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
+  // router.route('/:transport/:id').get((req, res) => {    
+  //   console.log(req.params.transport) ;
+  //   console.log(req.params.id) ;
+  //   // console.log(req.params.transport._id) ;
+  //   const transport = req.params.transport;
+  //   Trip.findOne({transport}).exec((err,tran) => {console.log(tran.source_dest[0].time)})
+  //   // Trip.findOne({transport.sou: req.params.transport})
+  //     // .then(transport => res.json(transport))
+  //   //   .catch(err => res.status(400).json('Error: ' + err));
+  // });
+
   router.route('/:transport/travel').post((req, res) => {
-    source_destSchema.source ="Ubon";
-    source_destSchema.dest ="Khonkaen";
-    source_destSchema.time ="16.00";
+    const {source,dest,time} = req.body;
+    source_destSchema.source =source;
+    source_destSchema.dest =dest;
+    source_destSchema.time =time;
     Trip.findOne({transport: req.params.transport})
 
       .then(trip => {
