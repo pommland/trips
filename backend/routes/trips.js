@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Trip = require('../models/trip.model');
+let {Trip,source_destSchema} = require('../models/trip.model');
 
 router.route('/').get((req, res) => {
   Trip.find()
@@ -20,11 +20,41 @@ router.route('/transport').post((req, res) => {
   .catch(err => res.status(400).json('Error: ' + err));
 });
 
-  // router.route('/:transport').get((req, res) => {      
-  //   Trip.find({transport: req.params.transport})
+  router.route('/:transport/').get((req, res) => {  
+    Trip.findOne({transport: req.params.transport})
+      .then(transport => res.json(transport))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
+  // router.route('/:transport').get((req, res) => {  
+  //   Trip.findOne({transport: req.params.transport})
+  //      .then(transport => console.log(transport.source_dest[0]))
+  //      .then(transport => res.json(transport.source_dest[0]))
+  //     // .then(transport => res.json(transport))
+  //     .catch(err => res.status(400).json('Error: ' + err));
+  // });
+
+  // router.route('/:transport/:id').get((req, res) => {     
+  //   Trip.findOne({source_dest: req.params.transport.})
   //     .then(transport => res.json(transport))
   //     .catch(err => res.status(400).json('Error: ' + err));
   // });
+
+  router.route('/:transport/travel').post((req, res) => {
+    source_destSchema.source ="Ubon";
+    source_destSchema.dest ="Khonkaen";
+    source_destSchema.time ="16.00";
+    Trip.findOne({transport: req.params.transport})
+
+      .then(trip => {
+        trip.source_dest.push(source_destSchema);
+        
+        trip.save()
+          .then(() => res.json('Trip updated! '))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
 
 
   // router.route(':transport/source').get((req, res) => {
@@ -34,9 +64,9 @@ router.route('/transport').post((req, res) => {
   // });
 
 
-  router.route('/:transport').get((req, res) => {      
-    Trip.find({transport: "Train"})
-      .then(transport => res.json(transport))
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
+  // router.route('/:transport').get((req, res) => {      
+  //   Trip.find({transport: "Train"})
+  //     .then(transport => res.json(transport))
+  //     .catch(err => res.status(400).json('Error: ' + err));
+  // });
 module.exports = router;
