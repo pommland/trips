@@ -15,15 +15,13 @@ app.listen(port, () => {console.log(`Server is running on port: ${port}`);}
 );
 
 
-const usersRouter = require('./routes/user_register');
-const loginRouter = require('./routes/user_login');
 const weatherRouter = require('./routes/weather');
 const covidRouter = require('./routes/covid');
+const usersRouter = require('./routes/user_routes');
 var blogRounter = require('./routes/blogs');
 
 // app.use('/', indexRouter);
-app.use('/register', usersRouter); // Registor
-app.use('/login', loginRouter);
+app.use('/api', usersRouter); // user routes
 app.use('/blogs', blogRounter); // Blog
 app.use('/weather', weatherRouter); // Blog
 app.use('/covid', covidRouter); // Blog
