@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
     fetch(url)
     .then(res => res.json())
     .then(data => {
+        res.json(data.Province[req.body.Province]);
         console.log(data.Province[req.body.Province]);
         }
     )
