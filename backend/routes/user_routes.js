@@ -10,6 +10,14 @@ const {
   resetPasswordController
 } = require('../controllers/auth_controller')
 
+//Load valid
+const {
+  validSign,
+  validLogin,
+  forgotPasswordValidator,
+  resetPasswordValidator
+} = require('../helpers/valid')
+
 
 
 
@@ -21,18 +29,18 @@ router.route('/').get((req, res) => { // Get All User
 });
 
 router.route('/register').post( // register User
-  registerController);
+  validSign,registerController);
 
 router.post('/activation', activationController) // activate user
 
 router.route('/login').post( // Add User
-  signinController);
+  validLogin,signinController);
 
 router.route('/forget').post( // Forget password send to email
-  forgotPasswordController);
+  forgotPasswordValidator,forgotPasswordController);
 
 router.route('/reset').post( // reset by token(resetlink) -> find db - > edit
-  resetPasswordController);
+  resetPasswordValidator,resetPasswordController);
 
 router.route('/:id').get((req, res) => { // get user by id
   User.findById(req.params.id)
