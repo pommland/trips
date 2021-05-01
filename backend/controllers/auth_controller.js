@@ -1,11 +1,8 @@
-const expressJwt = require('express-jwt');
 const _ = require('lodash');
-const fetch = require('node-fetch');
 let User = require('../models/user.model');
 const { validationResult } = require('express-validator');
-const jwt = require('jsonwebtoken');
-const expressJWT = require('express-jwt');
 const { errorHandler } = require('../helpers/dbErrorHandling');
+const jwt = require('jsonwebtoken');
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.MAIL_KEY);
 const Bcrypt = require("bcryptjs");
