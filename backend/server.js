@@ -18,13 +18,18 @@ app.listen(port, () => {console.log(`Server is running on port: ${port}`);}
 const weatherRouter = require('./routes/weather');
 const covidRouter = require('./routes/covid');
 const usersRouter = require('./routes/user_routes');
+const hotelsRouter = require('./routes/hotel_routes');
+const placesRouter = require('./routes/place_routes');
 var blogRounter = require('./routes/blogs');
 
 // app.use('/', indexRouter);
 app.use('/api', usersRouter); // user routes
 app.use('/blogs', blogRounter); // Blog
-app.use('/weather', weatherRouter); // Blog
-app.use('/covid', covidRouter); // Blog
+app.use('/weather', weatherRouter); // weather
+app.use('/covid', covidRouter); // covid
+app.use('/hotel', hotelsRouter); // hotel routes
+app.use('/place', placesRouter); // place routes
+
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true ,useUnifiedTopology: true }
