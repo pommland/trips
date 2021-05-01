@@ -8,7 +8,7 @@ router.post('/updateWeather', (req, res) => {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        res.json('OK');
+        //res.json('OK');
         newData = data;
         var len = Number(newData.Stations.length);
         // console.log(data.Stations.Observe);
@@ -22,16 +22,25 @@ router.post('/updateWeather', (req, res) => {
             const Rain = weather.Observe.Rainfall.Value;
             const Cloud = weather.Observe.TotolCloud;
             
-            newWeather = new Weather({
+            const newWeather = new Weather({
                 Province,
                 Time,
                 Temperature,
                 Rain,
                 Cloud
             });                                                                
-            newWeather.save()
+            newWeather.save(function (err) {
+                // console.log(i);
+                if (err) {
+                    res.status(400).json(err)
+                }else{
+                    if(i >= len - 1)
+                    res.json('Weather added!')
+                }
+            })
+            /*newWeather.save()
             .then(() => res.json('Weather added!'))
-            .catch(err => res.status(400).json('ไม่รู้ทำไม'));
+            .catch(err => res.status(400).json('ไม่รู้ทำไม'));*/
         }
     })
     .catch(err => console.log(err))
