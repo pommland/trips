@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="style.css" />
-    <title>Sign in & Sign up Form</title>
-  </head>
+import './style.css';
 
-
-  <body>
+function App() {
+  return (
+    
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <!-------------------------- SIGN IN!!!! --------------------------->
+          {/* <!-------------------------- SIGN IN!!!! ---------------------------> */}
           <form action="#" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
@@ -28,13 +18,13 @@
               <input type="password" placeholder="Password" id="pass" name="password" minlength="8" required/>
             </div>
             <div class="checkbox">
-              <input type="checkbox" value="lsRememberMe" id="rememberMe"> 
+              <input type="checkbox" value="lsRememberMe" id="rememberMe" /> 
               <label for="rememberMe">Remember me</label>
             </div>
             <input type="submit" value="Login" class="btn solid" />  
           </form>
 
-          <!-------------------------- SIGN UP!!!! --------------------------->
+          {/* <!-------------------------- SIGN UP!!!! ---------------------------> */}
           <form action="#" class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
@@ -49,7 +39,7 @@
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Email" />
             </div>
-            <!-- <div class="input-field">
+            {/* <!-- <div class="input-field">
               <i class="fas fa-name"></i>
               <input type="text" placeholder="Name" />
             </div>
@@ -60,8 +50,8 @@
 
             <div class="input-field">
               <i class="fas fa-calendar"></i>
-              <input type="text" placeholder="Birthday" onfocus="(this.type='date')" id="date">
-            </div> -->
+              <input type="text" placeholder="Birthday" onfocus="(this.type='date')" id="date" />
+            </div> --> */}
 
             <input type="submit" class="btn" value="Sign up" />
           </form>
@@ -87,7 +77,7 @@
             <p>
               Already Have a Account? Let's Enjoy Your Trip!
             </p>
-            <button class="btn transparent" id="sign-in-btn">
+            <button class="btn transparent" id="sign-in-btn" >
               Sign in
             </button>
           </div>
@@ -95,7 +85,8 @@
         </div>
       </div>
     </div>
+    
+  );
+}
 
-    <script src="app.js"></script>
-  </body>
-</html>
+export default App;
