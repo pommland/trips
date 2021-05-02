@@ -169,7 +169,7 @@ exports.signinController = (req, res) => {
         }
       );
       const { _id, username, email, role } = user;
-
+      
       return res.json({
         token,
         user: {
