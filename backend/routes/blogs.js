@@ -20,12 +20,17 @@ router.route('/add').post((req, res) => {
     date,
   });
 
+  newBlog.save()
+  .then(() => res.json('Blog added!'))
+  .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 router.route('/:id').get((req, res) => {
-    Blog.findById(req.params.id)
-      .then(exercise => res.json(exercise))
-      .catch(err => res.status(400).json('Error: ' + err));
-  });
+  Blog.findById(req.params.id)    
+    .then(blog => res.json(blog))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
   
 router.route('/:id').delete((req, res) => {
     Blog.findByIdAndDelete(req.params.id)
@@ -48,10 +53,7 @@ router.route('/update/:id').post((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
-  newBlog.save()
-  .then(() => res.json('Blog added!'))
-  .catch(err => res.status(400).json('Error: ' + err));
-});
+  
 
 
 module.exports = router;

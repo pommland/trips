@@ -21,15 +21,20 @@ const usersRouter = require('./routes/user_routes');
 const hotelsRouter = require('./routes/hotel_routes');
 const placesRouter = require('./routes/place_routes');
 var blogRounter = require('./routes/blogs');
+var tripRounter = require('./routes/trips');
 
 // app.use('/', indexRouter);
 app.use('/api', usersRouter); // user routes
 app.use('/blogs', blogRounter); // Blog
+<<<<<<< HEAD
 app.use('/weather', weatherRouter); // weather
 app.use('/covid', covidRouter); // covid
 app.use('/hotel', hotelsRouter); // hotel routes
 app.use('/place', placesRouter); // place routes
 
+=======
+app.use('/trips', tripRounter); 
+>>>>>>> Trip
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true ,useUnifiedTopology: true }
