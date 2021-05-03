@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import Blog from './Blog.js'
 import Header from '../Component/Header';
-import PopularBlog from './PopularBlog.js'
+import { Link  } from 'react-router-dom';
 import PopularList from './PopularList.js'
 import axios from 'axios';
 
@@ -59,6 +59,25 @@ function AllBlog() {
                 <div >
                 <PopularList />
                 </div>
+                <head>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>floating button demo</title>
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+                </head>
+
+        
+            <Link to='/cblog' href="#createblog">
+                <a className="float">
+                    <i className="fa fa-plus my-float">
+                    </i>
+                </a>
+                <div className="label-container">
+                    <div className="label-text">Create Your Blog</div>
+                    <i className="fa fa-play label-arrow"></i>
+                </div>
+            </Link>
                 
 
             </div>

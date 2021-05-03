@@ -8,7 +8,7 @@ import Home1 from "./Home1";
 import Login from "./Login";
 import AllBlog from "./components/AllBlog";
 import SingleBlog from "./components/SingleBlog";
-
+import CreateBlog from "./components/CreateBlog";
 const rootElement = document.getElementById("root");
     ReactDOM.render(
       <BrowserRouter>
@@ -17,6 +17,7 @@ const rootElement = document.getElementById("root");
         <Route path="/Login" component={Login} />
         <Route path="/Allblog" component={AllBlog} /> 
         <Route path="/:username/:topic/:date/:description/:image" component={SingleBlog} />
+        <Route path="/cblog" component={CreateBlog}/> 
 
          {/* <Route path="/content" component={Content}/> */}
          {/* <Route path="/footer" component={Footer}/>  */}
