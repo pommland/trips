@@ -1,13 +1,13 @@
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
+const containerlogin = document.querySelector(".container-login");
 
 sign_up_btn.addEventListener("click", () => {
-  container.classList.add("sign-up-mode");
+  containerlogin.classList.add("sign-up-mode");
 });
 
 sign_in_btn.addEventListener("click", () => {
-  container.classList.remove("sign-up-mode");
+  containerlogin.classList.remove("sign-up-mode");
 });
 
 
@@ -31,4 +31,3 @@ function lsRememberMe() {
     localStorage.checkbox = "";
   }
 }
-

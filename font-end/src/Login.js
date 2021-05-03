@@ -1,8 +1,8 @@
-import './style.css';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { authenticate, isAuth } from './helpers/auth';
+
 function Login() {
 
     const [formData, setFormData] = useState({
@@ -53,11 +53,12 @@ function Login() {
         }
       };
     return (
-        <><div class="container">
-        <div class="forms-container">
-            
+        <>
+        <div class="container-login">
+        {/* <div class="forms-container"> */}
           <div class="signin-signup">
             {/* <!-------------------------- SIGN IN!!!! ---------------------------> */}
+            <div class="form-login">
             <form action= "#" class="sign-in-form" onSubmit = {handleSubmit}>
               <h2 class="title">Sign in</h2>
               <div class="input-field">
@@ -81,9 +82,9 @@ function Login() {
                 <input type="checkbox" value="lsRememberMe" id="rememberMe" /> 
                 <label for="rememberMe">Remember me</label>
               </div>
-              <input type="submit" value="Login" class="btn solid" />  
+              <input type="submit" value="Login" class="btnlogin solid" />  
             </form>
-  
+
             {/* <!-------------------------- SIGN UP!!!! ---------------------------> */}
             <form action="#" class="sign-up-form">
               <h2 class="title">Sign up</h2>
@@ -113,8 +114,9 @@ function Login() {
                 <input type="text" placeholder="Birthday" onfocus="(this.type='date')" id="date" />
               </div> --> */}
   
-              <input type="submit" class="btn" value="Sign up" />
+              <input type="submit" class="btnlogin" value="Sign up" />
             </form>
+            </div>
           </div>
         </div>
   
@@ -125,29 +127,29 @@ function Login() {
               <p>
                 Create your account, Let's Get Started!
               </p>
-              <button class="btn transparent" id="sign-up-btn">
+              <button class="btnlogin transparent" id="sign-up-btn">
                 Sign up
               </button>
             </div>
-            <img src="img/login.png" class="image" alt="" />
+            <img src="img/login.png" class="image-login" alt="" />
           </div>
+
           <div class="panel right-panel">
             <div class="content">
               <h3>One of us ?</h3>
               <p>
                 Already Have a Account? Let's Enjoy Your Trip!
               </p>
-              <button class="btn transparent" id="sign-in-btn" >
+              <button class="btnlogin transparent" id="sign-in-btn" >
                 Sign in
               </button>
             </div>
-            <img src="img/signup.png" class="image" alt="" />
+            <img src="img/signup.png" class="image-login" alt="" />
           </div>
         </div>
-      </div>
+      {/* </div> */}
             
         </>
     )
 }
-
 export default Login
