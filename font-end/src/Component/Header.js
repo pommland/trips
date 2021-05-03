@@ -20,7 +20,7 @@ function Header() {
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="/#header">HOME <span class="sr-only">(current)</span></a>
+                            <a class="nav-link page-scroll" href="/">HOME <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="/#intro">INTRO</a>
@@ -36,7 +36,7 @@ function Header() {
                         </li>
                         <li class="nav-item">
                             <Link to="/Allblog">
-                                <a class="nav-link page-scroll">BLOG link</a>
+                                <a class="nav-link page-scroll" href="#headerblog">BLOG link</a>
                             </Link>
                         </li>
 

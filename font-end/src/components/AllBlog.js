@@ -26,13 +26,13 @@ function AllBlog() {
     const blogList = blogs.map(blog => <Blog blog={blog} />)
     //const popularList = blogs.map(popular => <PopularBlog blog ={popular}/>)
     return (
-        <div>
+        <>
             <Header />
-            <div className='header-blog'>
+            <div id="headerblog" className='header-blog'>
                 <a >BLOGS</a>
             </div>
 
-            <div className='allblog'>
+            <div  className='allblog'>
                 <div>
                     {blogList}
                 </div>
@@ -43,7 +43,7 @@ function AllBlog() {
 
             </div>
 
-        </div>
+        </>
     )
 }
 
