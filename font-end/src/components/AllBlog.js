@@ -4,6 +4,7 @@ import Header from '../Component/Header';
 import { Link  } from 'react-router-dom';
 import PopularList from './PopularList.js'
 import axios from 'axios';
+import Preloader from '../Component/Preloader';
 
 function AllBlog() {
     
@@ -48,7 +49,7 @@ function AllBlog() {
                 </div> */}
                 <div>
                 {new_blogs.blog.length === 0 ? (
-                    <div>Loading...</div>
+                    <Preloader/>
                 ) : (
                     new_blogs.blog.map(blog => {
                         return <Blog blog={blog} />;

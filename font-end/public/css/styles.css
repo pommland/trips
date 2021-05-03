@@ -1829,7 +1829,11 @@ a:hover.back-to-top {
 		box-shadow: none;
         background: transparent;
 	}
-	
+	.navbar-customsolid {
+		padding: 2.125rem 1.5rem 2.125rem 2rem;
+		box-shadow: none;
+        /* background: transparent; */
+	}
 	.navbar-custom .navbar-brand.logo-text {
 		color: #fff;
 	}

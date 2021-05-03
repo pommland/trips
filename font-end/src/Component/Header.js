@@ -58,7 +58,7 @@ function Header() {
                             <a class="nav-link page-scroll" href="/#about">ABOUT</a>
                         </li>
                     </ul>
-                    <Link to="/Login">
+                    <Link to="/Account">
                     <a class="btn-solid-lg page-scroll">
                             {message}
                     </a>

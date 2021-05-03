@@ -6,6 +6,7 @@ import Intro from './Component/Intro';
 import Member from './Component/Member';
 import Popblog from './Component/Popblog';
 import Footer from './Component/Footer';
+import UserChangePassword from './components/UserChangePassword';
 
 
 function Home1() {
