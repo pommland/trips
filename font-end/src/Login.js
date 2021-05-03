@@ -5,32 +5,32 @@ import axios from 'axios';
 import { authenticate, isAuth } from './helpers/auth';
 
 function Login() {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    textChange: 'Sign In'
-  });
-  const { username, password, textChange } = formData;
-  const handleChange = text => e => {
-    setFormData({ ...formData, [text]: e.target.value });
-  };
-  const handleSubmit = e => {
-    console.log(process.env.REACT_APP_API_URL);
-    e.preventDefault();
-    if (username && password) {
-      setFormData({ ...formData, textChange: 'Submitting' });
-      axios
-        .post(`http://localhost:5000/api/login`, {
-          username: username,
-          password: password
-        })
-        .then(res => {
-          authenticate(res, () => {
-            setFormData({
-              ...formData,
-              username: '',
-              password: '',
-              textChange: 'Submitted'
+    const [formData, setFormData] = useState({
+        username: '',
+        password: '',
+        textChange: 'Sign In'
+      });
+      const { username, password ,textChange} = formData;
+      const handleChange = text => e => {
+        setFormData({ ...formData, [text]: e.target.value });
+      };
+      const handleSubmit = e => {
+        console.log(process.env.REACT_APP_API_URL);
+        e.preventDefault();
+        if (username && password) {
+          setFormData({ ...formData, textChange: 'Submitting' });
+          axios
+            .post(`${process.env.REACT_APP_API_URL}api/login`, {
+              username: username,
+              password: password
+            })
+            .then(res => {
+              authenticate(res, () => {
+                setFormData({
+                  ...formData,
+                  username: '',
+                  textChange: 'Submitted'
+                  password: '',
             });
             isAuth() && isAuth().role === 'admin'
               ? Login.push('/admin')

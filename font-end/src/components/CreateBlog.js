@@ -50,7 +50,7 @@ export class CreateBlog extends Component {
 	formData.append("file", this.state.img);
 	console.log("FormData : ",formData)
 	//upload img
-	axios.post('http://localhost:5000/image/files',formData,
+	axios.post('${process.env.REACT_APP_API_URL}image/files',formData,
 	{
 		headers: {
 			'Content-Type': 'multipart/form-data'
@@ -59,7 +59,7 @@ export class CreateBlog extends Component {
 	.then(res => {
 		this.setState({img : res.data.file.filename})
 		this.setState({date : moment(this.state.date).format('DD-MM-YYYY') })
-		axios.post('http://localhost:5000/blogs/add',{
+		axios.post('${process.env.REACT_APP_API_URL}blogs/add',{
 			username : this.state.username,
 			topic : this.state.topic,
 			description : this.state.des,
@@ -71,7 +71,7 @@ export class CreateBlog extends Component {
 			this.props.history.push(`${this.state.username}/${this.state.topic}/${this.state.date}/${this.state.des}/${this.state.img}`);})
 		.catch(err => {
 			alert(err)
-			axios.delete('http://localhost:5000/image/files/delete',{
+			axios.delete('${process.env.REACT_APP_API_URL}image/files/delete',{
 				filename : this.state.img
 			})
 			.then(res => console.log("Image Deleted!"))

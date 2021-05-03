@@ -2,20 +2,20 @@ import React from 'react';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
  
 class NotiJaa extends React.Component {
-  createNotification = (type) => {
+  createNotification = (type,msg) => {
     return () => {
       switch (type) {
         case 'info':
-          NotificationManager.info('Info message');
+          NotificationManager.info(msg);
           break;
         case 'success':
-          NotificationManager.success('Success message', 'Title here');
+          NotificationManager.success(msg);
           break;
         case 'warning':
-          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+          NotificationManager.warning(msg, 3000);
           break;
         case 'error':
-          NotificationManager.error('Error message', 'Click me!', 5000, () => {
+          NotificationManager.error(msg, 'Click me!', 5000, () => {
             alert('callback');
           });
           break;

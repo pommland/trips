@@ -17,7 +17,7 @@ function AllBlog() {
 
 
     const getBlogs = () => {
-    axios.get('http://localhost:5000/blogs')
+    axios.get('${process.env.REACT_APP_API_URL}blogs')
     .then(res => {
         const data = res.data
         for (var i = 0; i < data.length; i++){
