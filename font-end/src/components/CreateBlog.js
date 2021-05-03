@@ -4,6 +4,7 @@ import Header from '../Component/Header';
 // import Header from './Header.js'
 // import { Link ,withRouter,Route } from 'react-router-dom';
 import moment from 'moment';
+import axios from 'axios';
 
 export class CreateBlog extends Component {
 	
@@ -13,25 +14,27 @@ export class CreateBlog extends Component {
 		this.state = {
 			username : 'A',
 			profileImg: './img/icon-uploadimg.png',
+			img : '',
 			topic: '',
 			des: '',
 			date : new Date().toLocaleDateString(),
 			
 			
 		};
-		this.state.date = moment(this.state.date).format('DD-MM-YYYY');
+		
 		this.handleChange = this.handleChange.bind(this);
-		// console.log(this.state);
+		console.log(this.state);
 	}
 	handleChange(evt) {
 		this.setState({ [evt.target.name]: evt.target.value });
-		console.log(this.state);
+		// console.log(this.state);
 	}
 	imageHandler = (e) => {
 		const reader = new FileReader();
 		reader.onload = () =>{
 		  if(reader.readyState === 2){
 			this.setState({profileImg: reader.result})
+			this.setState({img : e.target.files[0] })
 		  }
 		}
 		reader.readAsDataURL(e.target.files[0])
@@ -39,7 +42,35 @@ export class CreateBlog extends Component {
    btnHandler=(e)=>{
 	
    if(this.state.profileImg != './img/icon-uploadimg.png' && this.state.topic != ''&& this.state.des != ''){
-	this.props.history.push(`${this.state.username}/${this.state.topic}/${this.state.date}/${this.state.des}/${this.state.profileImg}`);  
+	var formData = new FormData();
+	formData.append("file", this.state.img);
+	console.log("FormData : ",formData)
+	//upload img
+	axios.post('http://localhost:5000/image/files',formData,
+	{
+		headers: {
+			'Content-Type': 'multipart/form-data'
+		}
+	})
+	.then(res => {
+		console.log(res)
+		this.setState({img : res.data.file.filename})
+		this.setState({date : moment(this.state.date).format('DD-MM-YYYY') })
+		axios.post('http://localhost:5000/blogs/add',{
+			username : this.state.username,
+			topic : this.state.topic,
+			description : this.state.des,
+			date : this.state.date,
+			image : this.state.img
+		})
+		.then(res => {
+			console.log("Blog Added!" + res)
+			this.props.history.push(`${this.state.username}/${this.state.topic}/${this.state.date}/${this.state.des}/${this.state.img}`);})
+		.catch(err => alert(err));
+	})
+	.catch(err => alert(err));
+	
+	  
 
    }
    else{
