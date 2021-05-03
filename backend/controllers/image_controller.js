@@ -42,7 +42,7 @@ exports.uploadController = (req, res) => {
 exports.deleteByFilenameController = (req, res) => { // delete user by id
   const filename = req.body.filename;
 
-	gfs.files.remove({ filename: filename }, (err) => {
+	gfs.files.deleteOne({ filename: filename }, (err) => {
 			if (err) res.status(500).send(err);
 			res.send('File Deleted');
 		});
