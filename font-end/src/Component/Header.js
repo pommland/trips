@@ -1,7 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
 
 function Header() {
+    const [isLoggedIn, setisLoggedIn] = useState(true);
+    const [isLoggedIn_user, setisLoggedIn_user] = useState(false);
+    const [isLoggedIn_host, setisLoggedIn_host] = useState(false);
+    var message ="LOGIN | SIGNUP";
+    if(isLoggedIn){
+        if(isLoggedIn_user){
+            message = "Account1"
+        }
+        else if(isLoggedIn_host){
+            message = "Account2"
+        }
+    }
     return (
     
         
@@ -46,7 +58,7 @@ function Header() {
                     </ul>
                     <Link to="/Login">
                     <a class="btn-solid-lg page-scroll">
-                            LOGIN | SIGNUP
+                            {message}
                     </a>
                     </Link>
                 </div>
