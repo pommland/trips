@@ -20,7 +20,7 @@ function Login() {
         if (username && password) {
           setFormData({ ...formData, textChange: 'Submitting' });
           axios
-            .post(`http://localhost:5000/api/login`, {
+            .post(`${process.env.REACT_APP_API_URL}api/login`, {
               username: username,
               password: password
             })

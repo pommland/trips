@@ -1,5 +1,6 @@
 const router = require('express').Router();
 let User = require('../models/user.model');
+const Bcrypt = require("bcryptjs");
 
 //Load controllers
 const {
@@ -58,12 +59,16 @@ router.route('/update/:id').post((req, res) => { // Update & edit User
   User.findById(req.params.id)
     .then(user => {
       user.username = req.body.username;
-      user.password = req.body.password;
+      user.password = Bcrypt.hashSync(req.body.password);
       user.email = req.body.email;
       user.address = req.body.address;
       user.Tel = req.body.Tel;
       user.save()
-        .then(() => res.json('User updated!'))
+        .then(res => {
+          res.password = undefined;
+          res.address = undefined;
+          res.Tel = undefined;
+          res.json(res)})
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

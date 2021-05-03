@@ -155,7 +155,7 @@ exports.signinController = (req, res) => {
       
       if (!user.authenticate(password)) {
         return res.status(400).json({
-          errors: 'Email and password do not match'
+          errors: 'User and password do not match'
         });
       }
       // generate a token and send to client
@@ -261,6 +261,8 @@ exports.forgotPasswordController = (req, res) => {
     );
   }
 };
+
+
 
 //reset password
 exports.resetPasswordController = (req, res) => {
