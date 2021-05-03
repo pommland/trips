@@ -1,89 +1,78 @@
+
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { authenticate, isAuth } from './helpers/auth';
 
 function Login() {
-
-    const [formData, setFormData] = useState({
-        username: '',
-        password: '',
-        textChange: 'Sign In'
-      });
-      const { username, password ,textChange} = formData;
-      const handleChange = text => e => {
-        setFormData({ ...formData, [text]: e.target.value });
-      };
-      const handleSubmit = e => {
-        console.log(process.env.REACT_APP_API_URL);
-        e.preventDefault();
-        if (username && password) {
-          setFormData({ ...formData, textChange: 'Submitting' });
-          axios
-            .post(`http://localhost:5000/api/login`, {
-              username: username,
-              password: password
-            })
-            .then(res => {
-              authenticate(res, () => {
-                setFormData({
-                  ...formData,
-                  username: '',
-                  password: '',
-                  textChange: 'Submitted'
-                });
-                isAuth() && isAuth().role === 'admin'
-                  ? Login.push('/admin')
-                  : Login.push('/private');
-                console.log(`Hey ${res.data.username}, Welcome back!`);
-              });
-            })
-            .catch(err => {
-              setFormData({
-                ...formData,
-                username: '',
-                password: '',
-                textChange: 'Sign In'
-              });
-              console.log(err.response);
-              //toast.error(err.response.data.errors);
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    textChange: 'Sign In'
+  });
+  const { username, password, textChange } = formData;
+  const handleChange = text => e => {
+    setFormData({ ...formData, [text]: e.target.value });
+  };
+  const handleSubmit = e => {
+    console.log(process.env.REACT_APP_API_URL);
+    e.preventDefault();
+    if (username && password) {
+      setFormData({ ...formData, textChange: 'Submitting' });
+      axios
+        .post(`http://localhost:5000/api/login`, {
+          username: username,
+          password: password
+        })
+        .then(res => {
+          authenticate(res, () => {
+            setFormData({
+              ...formData,
+              username: '',
+              password: '',
+              textChange: 'Submitted'
             });
-        } else {
-          toast.error('Please fill all fields');
-        }
-      };
-    return (
-        <>
-        <div class="container-login">
-        {/* <div class="forms-container"> */}
+            isAuth() && isAuth().role === 'admin'
+              ? Login.push('/admin')
+              : Login.push('/private');
+            console.log(`Hey ${res.data.username}, Welcome back!`);
+          });
+        })
+        .catch(err => {
+          setFormData({
+            ...formData,
+            username: '',
+            password: '',
+            textChange: 'Sign In'
+          });
+          console.log(err.response);
+          //toast.error(err.response.data.errors);
+        });
+    } else {
+      toast.error('Please fill all fields');
+    }
+  };
+  return (
+    <>
+      <div class="container-login">
+        <div class="forms-container">
           <div class="signin-signup">
+
             {/* <!-------------------------- SIGN IN!!!! ---------------------------> */}
-            <div class="form-login">
-            <form action= "#" class="sign-in-form" onSubmit = {handleSubmit}>
+            <form action="#" class="sign-in-form">
               <h2 class="title">Sign in</h2>
               <div class="input-field">
                 <i class="fas fa-user"></i>
-                <input type="text" 
-                placeholder="Username" 
-                onChange={handleChange('username')}
-                value={username}/>
+                <input type="text" placeholder="Username" />
               </div>
               <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="password" 
-                placeholder="Password" 
-                id="pass" 
-                name="password" 
-                minLength="6" required 
-                onChange={handleChange('password')}
-                value={password}/>
+                <input type="password" placeholder="Password" />
               </div>
-              <div class="checkbox">
-                <input type="checkbox" value="lsRememberMe" id="rememberMe" /> 
-                <label for="rememberMe">Remember me</label>
-              </div>
-              <input type="submit" value="Login" class="btnlogin solid" />  
+              <input type="submit" value="Login" class="btn-signin solid" />
+
             </form>
+
 
             {/* <!-------------------------- SIGN UP!!!! ---------------------------> */}
             <form action="#" class="sign-up-form">
@@ -100,56 +89,40 @@ function Login() {
                 <i class="fas fa-envelope"></i>
                 <input type="email" placeholder="Email" />
               </div>
-              {/* <!-- <div class="input-field">
-                <i class="fas fa-name"></i>
-                <input type="text" placeholder="Name" />
-              </div>
-              <div class="input-field">
-                <i class="fas fa-name"></i>
-                <input type="text" placeholder="Surname" />
-              </div>
-  
-              <div class="input-field">
-                <i class="fas fa-calendar"></i>
-                <input type="text" placeholder="Birthday" onfocus="(this.type='date')" id="date" />
-              </div> --> */}
-  
-              <input type="submit" class="btnlogin" value="Sign up" />
+              <input type="submit" class="btn-signin" value="Sign up" />
             </form>
-            </div>
           </div>
         </div>
-  
-        <div class="panels-container">
-          <div class="panel left-panel">
-            <div class="content">
-              <h3>New here ?</h3>
-              <p>
-                Create your account, Let's Get Started!
-              </p>
-              <button class="btnlogin transparent" id="sign-up-btn">
-                Sign up
-              </button>
-            </div>
-            <img src="img/login.png" class="image-login" alt="" />
-          </div>
 
-          <div class="panel right-panel">
+        <div class="panels-container">
+          <div class="panel-login left-panel">
             <div class="content">
-              <h3>One of us ?</h3>
-              <p>
-                Already Have a Account? Let's Enjoy Your Trip!
-              </p>
-              <button class="btnlogin transparent" id="sign-in-btn" >
-                Sign in
-              </button>
+              <h6>New here ?</h6>
+              <p1>
+                Create your account, Let's Get Started!
+                    </p1><br /><br />
+              <button class="btn-signin transparent" id="sign-up-btn">
+                Sign up
+                    </button>
             </div>
-            <img src="img/signup.png" class="image-login" alt="" />
+            <img src="img/login.png" class="image" alt="" />
+          </div>
+          <div class="panel-login right-panel">
+            <div class="content">
+              <h6>One of us ?</h6>
+              <p1>
+                Already Have a Account? Let's Enjoy Your Trip!
+                    </p1><br /><br />
+              <button class="btn-signin transparent" id="sign-in-btn" >
+                Sign in
+                    </button>
+            </div>
+            <img src="img/signup.png" class="image" alt="" />
           </div>
         </div>
-      {/* </div> */}
-            
-        </>
-    )
+      </div>
+    </>
+  )
 }
+
 export default Login

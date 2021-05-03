@@ -4,10 +4,14 @@ const containerlogin = document.querySelector(".container-login");
 
 sign_up_btn.addEventListener("click", () => {
   containerlogin.classList.add("sign-up-mode");
+ 
+  
 });
 
 sign_in_btn.addEventListener("click", () => {
-  containerlogin.classList.remove("sign-up-mode");
+ 
+   containerlogin.classList.remove("sign-up-mode");
+ 
 });
 
 
