@@ -1,29 +1,39 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import Blog from './Blog.js'
 import Header from '../Component/Header';
 import PopularBlog from './PopularBlog.js'
 import PopularList from './PopularList.js'
+import axios from 'axios';
+
 function AllBlog() {
-    const blogs = [{
-        username: 'A',
-        topic: 'Header',
-        description: 'Google Cloud Text-to-Speech enables developers to synthesize natural-sounding speech with 100+ voices, available in multiple languages and variants. It applies DeepMind’s groundbreaking research in WaveNet and Google’s powerful neural networks to deliver the highest fidelity possible. As an easy-to-use API, you can create lifelike interactions with your users, across many applications and devices.Google Cloud Text-to-Speech enables developers to synthesize natural-sounding speech with 100+ voices, available in multiple languages and variants. It applies DeepMind’s groundbreaking research in WaveNet and Google’s powerful neural networks to deliver the highest fidelity possible. As an easy-to-use API, you can create lifelike interactions with your users, across many applications and devices.Google Cloud Text-to-Speech enables developers to synthesize natural-sounding speech with 100+ voices, available in multiple languages and variants. It applies DeepMind’s groundbreaking research in WaveNet and Google’s powerful neural networks to deliver the highest fidelity possible. As an easy-to-use API, you can create lifelike interactions with your users, across many applications and devices.',
-        date: '5 Jan. 2021',
-        image: 'woman-on-pier.jpg'
-    }, {
-        username: 'B',
-        topic: 'HeaderB',
-        description: 'Google Cloud Text-to-Speech enables developers to synthesize natural-sounding speech with 100+ voices, available in multiple languages and variants. It applies DeepMind’s groundbreaking research in WaveNet and Google’s powerful neural networks to deliver the highest fidelity possible. As an easy-to-use API, you can create lifelike interactions with your users, across many applications and devices.Google Cloud Text-to-Speech enables developers to synthesize natural-sounding speech with 100+ voices, available in multiple languages and variants. It applies DeepMind’s groundbreaking research in WaveNet and Google’s powerful neural networks to deliver the highest fidelity possible. As an easy-to-use API, you can create lifelike interactions with your users, across many applications and devices.Google Cloud Text-to-Speech enables developers to synthesize natural-sounding speech with 100+ voices, available in multiple languages and variants. It applies DeepMind’s groundbreaking research in WaveNet and Google’s powerful neural networks to deliver the highest fidelity possible. As an easy-to-use API, you can create lifelike interactions with your users, across many applications and devices.',
-        date: '7 Jan. 2021',
-        image: 'wat.jpg'
-    }, {
-        username: 'C',
-        topic: 'HeaderC',
-        description: 'CSS variables have access to the DOM, which means that you can create variables with local or global scope, change the variables with JavaScript, and change the variables based on media queries.',
-        date: '6 Jan. 2021',
-        image: 'Wat-Benchamabophit.jpg'
-    }]
-    const blogList = blogs.map(blog => <Blog blog={blog} />)
+    
+    const [new_blogs, setFormBlog] = useState({
+        blog : []
+    })
+
+    useEffect(() => {
+        getBlogs();
+    }, []);
+
+
+    const getBlogs = () => {
+    axios.get('http://localhost:5000/blogs')
+    .then(res => {
+        const data = res.data
+        for (var i = 0; i < data.length; i++){
+            setFormBlog({ ...new_blogs,blog : data 
+            })
+        }
+    })
+    .catch(err => {
+        // console.log(err);
+        return null;
+    });
+    }
+    
+    
+    
+    // console.log(formData)
     //const popularList = blogs.map(popular => <PopularBlog blog ={popular}/>)
     return (
         <>
@@ -33,8 +43,18 @@ function AllBlog() {
             </div>
 
             <div  className='allblog'>
-                <div>
+                {/* <div>
                     {blogList}
+                </div> */}
+                <div>
+                {new_blogs.blog.length === 0 ? (
+                    <div>Loading...</div>
+                ) : (
+                    new_blogs.blog.map(blog => {
+                        return <Blog blog={blog} />;
+                    })
+                    // blogs.map(blog => <Blog blog={blog} />)
+                )}
                 </div>
                 <div >
                 <PopularList />

@@ -25,20 +25,20 @@ var tripRounter = require('./routes/trips');
 // app.use('/', indexRouter);
 app.use('/api', usersRouter); // user routes
 app.use('/blogs', blogRounter); // Blog
-<<<<<<< HEAD
+// <<<<<<< HEAD
 app.use('/weather', weatherRouter); // weather
 app.use('/covid', covidRouter); // covid
 app.use('/hotel', hotelsRouter); // hotel routes
 app.use('/place', placesRouter); // place routes
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
-=======
+// =======
 app.use('/trips', tripRounter); 
->>>>>>> Trip
+// >>>>>>> Trip
 
-=======
+// =======
 app.use('/image', imagesRouter);
->>>>>>> Image
+// >>>>>>> Image
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true ,useUnifiedTopology: true }
     );

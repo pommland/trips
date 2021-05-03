@@ -4,14 +4,16 @@ import AllBlog from './AllBlog.js'
 import { useParams } from 'react-router-dom';
 import PopularList from './PopularList.js'
 function SingleBlog() {
+
     let { username, topic, date, description, image } = useParams();
+    const url_img = "http://localhost:5000/image/files/" + image
     return (
         <div>
             <Header />
             <div className='allblog' >
                 <div className='container-sblog'>
                     <div className='container-spic'>
-                        <img className='spic' src={`/img/${image} `} />
+                        <img className='spic' src={url_img} />
                     </div>
                     <div className='container-stopic'>
                         {topic}
