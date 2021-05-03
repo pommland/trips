@@ -31,6 +31,7 @@ export class CreateBlog extends Component {
 	}
 	imageHandler = (e) => {
 		const reader = new FileReader();
+		if(e.target.file[0].size <= 16777216){
 		reader.onload = () =>{
 		  if(reader.readyState === 2){
 			this.setState({profileImg: reader.result})
@@ -38,6 +39,9 @@ export class CreateBlog extends Component {
 		  }
 		}
 		reader.readAsDataURL(e.target.files[0])
+		}else{
+			alert("Image is more than 16mb,Try Agian!")
+		}
 	  };
    btnHandler=(e)=>{
 	
@@ -53,7 +57,6 @@ export class CreateBlog extends Component {
 		}
 	})
 	.then(res => {
-		console.log(res)
 		this.setState({img : res.data.file.filename})
 		this.setState({date : moment(this.state.date).format('DD-MM-YYYY') })
 		axios.post('http://localhost:5000/blogs/add',{
@@ -66,7 +69,14 @@ export class CreateBlog extends Component {
 		.then(res => {
 			console.log("Blog Added!" + res)
 			this.props.history.push(`${this.state.username}/${this.state.topic}/${this.state.date}/${this.state.des}/${this.state.img}`);})
-		.catch(err => alert(err));
+		.catch(err => {
+			alert(err)
+			axios.delete('http://localhost:5000/image/files/delete',{
+				filename : this.state.img
+			})
+			.then(res => console.log("Image Deleted!"))
+			.catch(err => console.log(err))
+		});
 	})
 	.catch(err => alert(err));
 	

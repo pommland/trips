@@ -10,7 +10,8 @@ const crypto = require('crypto');
 const {
     getAllController,
     uploadController,
-    displayByFilenameController
+    displayByFilenameController,
+    deleteByFilenameController
 } = require('../controllers/image_controller')
 
 const storage = new GridFsStorage({
@@ -37,6 +38,8 @@ const storage = new GridFsStorage({
 
  
  router.get('/files', getAllController);
+
+ router.delete('/files/delete', deleteByFilenameController);
 
  router.get('/files/:filename', displayByFilenameController);
  
