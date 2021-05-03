@@ -11,13 +11,14 @@ router.route('/add').post((req, res) => {
   const username = req.body.username;
   const topic = (req.body.topic);
   const description = req.body.topic;
-  const date = Date.parse(req.body.date);
-
+  const date = req.body.date;
+  const image = req.body.image;
   const newBlog = new Blog({
     username,
     topic,
     description,
     date,
+    image
   });
 
   newBlog.save()
@@ -44,8 +45,8 @@ router.route('/update/:id').post((req, res) => {
         blog.username = req.body.username;
         blog.topic = (req.body.topic);
         blog.description = req.body.description;
-        blog.date = Date.parse(req.body.date);
-  
+        blog.date = req.body.date;
+        blog.image = req.body.image;
         blog.save()
           .then(() => res.json('Blog updated! Branch    Pom test'))
           .catch(err => res.status(400).json('Error: ' + err));

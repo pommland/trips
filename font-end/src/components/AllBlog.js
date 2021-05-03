@@ -5,7 +5,6 @@ import { Link  } from 'react-router-dom';
 import PopularList from './PopularList.js'
 import axios from 'axios';
 import Preloader from '../Component/Preloader';
-
 function AllBlog() {
     
     const [new_blogs, setFormBlog] = useState({
@@ -44,12 +43,9 @@ function AllBlog() {
             </div>
 
             <div  className='allblog'>
-                {/* <div>
-                    {blogList}
-                </div> */}
                 <div>
                 {new_blogs.blog.length === 0 ? (
-                    <Preloader/>
+                    <Preloader />
                 ) : (
                     new_blogs.blog.map(blog => {
                         return <Blog blog={blog} />;

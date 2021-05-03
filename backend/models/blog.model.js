@@ -6,7 +6,8 @@ const blogSchema = new Schema({
   username: { type: String, required: true },
   topic: { type: String, required: true },
   description: { type: String, required: true },
-  date: { type: Date, required: true },
+  date: { type: String, required: true },
+  image : {type:String,required : true}
 }, {
   timestamps: true,
 });
