@@ -87,7 +87,7 @@ function Header() {
                                         เราพร้อมสนับสนุนทุกการเดินทางของคุณ
                                     </p>
                                     <Link to="/Create">
-                                    <a class="btn-solid-lg page-scroll" href="#create" >
+                                    <a class="btn-solid-lg page-scroll" href="#MyTripTop" >
                                         CREATE TRIP
                                     </a>
                                     </Link>

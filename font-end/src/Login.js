@@ -184,7 +184,6 @@ function Login() {
               </div>
               <div style={{width: '180px'}}>
               <Select
-      //style={{width: `${(8*this.state.selectedOption2.length) + 100}px`}}
                 value={role}
                 onChange={handleChange_role('role')}
                 options={options}

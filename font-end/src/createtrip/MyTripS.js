@@ -239,7 +239,7 @@ function MyTripS() {
                 <section class="tm-banner">
                     <div class="tm-container-outer tm-banner-bg">
                         <div class="container">
-                            <div id="create" class="row tm-banner-row tm-banner-row-header">
+                            <div class="row tm-banner-row tm-banner-row-header">
                                 <div class="col-xs-12">
                                     <div  class="tm-banner-header">
                                         <h1 class="text-uppercase tm-banner-title">Let's begin</h1>
