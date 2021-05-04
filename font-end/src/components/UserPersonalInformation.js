@@ -78,11 +78,11 @@ function UserPersonalInformation() {
 
       {/* Side Bar */}
       <div className="side-bar-container">
-          <div className="user-none-side-bar-selceted"><div className="side-bar-menu"><Link to="/"><a><i class="fas fa-home" /><div>Home</div></a></Link></div></div>
+          <div className="user-side-none-bar-selceted"><div className="side-bar-menu"><Link to="/"><a><i class="fas fa-home" /><div>Home</div></a></Link></div></div>
           <div className="user-side-bar-selceted"><div className="side-bar-menu"><a><i class="far fa-user"/><div>Personal Information</div></a></div></div>
-          <div className="user-none-side-bar-selceted"><div className="side-bar-menu"><Link to="/Acount/Change_password"><a><i class="fas fa-unlock-alt"/><div>Change Password</div></a></Link></div></div>
-          <div className="user-none-side-bar-selceted"><div className="side-bar-menu"><Link to="/"><a><i class="fas fa-map-marked-alt"/><div>My TripS</div></a></Link></div></div>
-          <div className="user-none-side-bar-selceted"><div className="side-bar-menu"><a onClick={signout}><i class="fas fa-sign-out-alt"/><div>Log Out</div></a></div></div>
+          <div className="user-side-none-bar-selceted"><div className="side-bar-menu"><Link to="/Acount/Change_password"><a><i class="fas fa-unlock-alt"/><div>Change Password</div></a></Link></div></div>
+          <div className="user-side-none-bar-selceted"><div className="side-bar-menu"><Link to="/"><a><i class="fas fa-map-marked-alt"/><div>My TripS</div></a></Link></div></div>
+          <div className="user-side-none-bar-selceted"><div className="side-bar-menu"><a onClick={signout}><i class="fas fa-sign-out-alt"/><div>Log Out</div></a></div></div>
       </div>
 
       {/* Body */}
