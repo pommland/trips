@@ -168,7 +168,7 @@ exports.signinController = (req, res) => {
           expiresIn: '7d'
         }
       );
-      const { _id, username, email, role } = user;
+      const { _id, username, email, roles } = user;
       
       return res.json({
         token,
@@ -176,7 +176,7 @@ exports.signinController = (req, res) => {
           _id,
           username,
           email,
-          role
+          roles
         }
       });
     });
