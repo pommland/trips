@@ -14,6 +14,7 @@ class Selector extends React.Component {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
   };
+
   render() {
     const { selectedOption } = this.state;
 

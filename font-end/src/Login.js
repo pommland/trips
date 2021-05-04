@@ -6,7 +6,6 @@ import { authenticate, isAuth } from './helpers/auth';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import Select from 'react-select';
-import Selector from './components/Selector';
 
 
 const options = [
@@ -73,26 +72,33 @@ function Login() {
     }
   };
 
+  // ----------- event ปุ่ม Sign up----------------------//
   const [formData_r, setFormData_r] = useState({
     username_r: '',
     password_r: '',
     email_r   : '',
+    role : null,
     textChange: 'Sign Up'
   });
-  const { username_r, password_r ,email_r,textChange_r} = formData_r;
+  const { username_r, password_r ,email_r,role,textChange_r} = formData_r;
   const handleChange_r = text => e => {
     setFormData_r({ ...formData_r, [text]: e.target.value });
   };
+
+  const handleChange_role = selectedOption => e => {
+    setFormData_r({ ...formData_r, [selectedOption]: e });
+  };
+  
   const handleSubmit_r = e => {
     e.preventDefault();
-    console.log(formData_r)
-    if (username_r && email_r && password_r) {
+    if (username_r && email_r && password_r && role) {
         setFormData_r({ ...formData_r, textChange: 'Submitting' });
         axios
           .post(`${process.env.REACT_APP_API_URL}api/register`, {
             username : username_r,
             email : email_r,
-            password: password_r
+            password: password_r,
+            roles : formData_r.role.value
           })
           .then(res => {
             setFormData_r({
@@ -103,7 +109,6 @@ function Login() {
               textChange: 'Submitted'
             });
             NotificationManager.success(res.data.message);
-            // toast.success(res.data.message);
           })
           .catch(err => {
             setFormData_r({
@@ -113,7 +118,6 @@ function Login() {
               password: '',
               textChange: 'Sign Up'
             });
-            // console.log(err.response);
             const msg = err.response.data.errors;          
             NotificationManager.error(msg + '!', 'Click me!', 5000, () => {
               alert('Try Again!');
@@ -123,7 +127,7 @@ function Login() {
       NotificationManager.warning('Please fill all fields', 'Close after 3000ms', 3000);
     }
   };
-
+  // ----------- event ปุ่ม Sign up----------------------//
 
   return (
     <>
@@ -174,7 +178,12 @@ function Login() {
                 value={email_r}/>
               </div>
               <div style={{width: '180px'}}>
-               <Selector/><br/>
+              <Select
+      //style={{width: `${(8*this.state.selectedOption2.length) + 100}px`}}
+                value={role}
+                onChange={handleChange_role('role')}
+                options={options}
+              /><br/>
                </div>
               <input type="submit" class="btn-signin" value="Sign up" />
               
