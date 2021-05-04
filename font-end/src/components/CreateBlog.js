@@ -1,10 +1,13 @@
 
 import React, { Component } from 'react';
 import Header from '../Component/Header';
+import { Link, Redirect } from 'react-router-dom';
 // import Header from './Header.js'
 // import { Link ,withRouter,Route } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
+import { authenticate, isAuth } from '../helpers/auth';
+
 
 export class CreateBlog extends Component {
 	
@@ -29,6 +32,8 @@ export class CreateBlog extends Component {
 		this.setState({ [evt.target.name]: evt.target.value });
 		// console.log(this.state);
 	}
+	
+	
 	imageHandler = (e) => {
 		const reader = new FileReader();
 		if(e.target.file[0].size <= 16777216){
@@ -87,13 +92,19 @@ export class CreateBlog extends Component {
 	alert("Please fill up.");
    }
    }
+
+   
 	render() {
 		const { profileImg } = this.state
+		// const authuser = () => {
+		// 	{username}
+		// };
 		return (
 			<div>
 				 <Header /> 
 <center>
 				<div className='container-create'>
+				{/* {isAuth() ? {username} : <Redirect to='/Allblog' />} */}
 					<div >
 						<div className="container-photo">
 

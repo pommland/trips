@@ -5,6 +5,8 @@ import { Link  } from 'react-router-dom';
 import PopularList from './PopularList.js'
 import axios from 'axios';
 import Preloader from '../Component/Preloader';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 function AllBlog() {
     
     const [new_blogs, setFormBlog] = useState({
@@ -17,7 +19,8 @@ function AllBlog() {
 
 
     const getBlogs = () => {
-    axios.get('${process.env.REACT_APP_API_URL}blogs')
+    axios.get(`${process.env.REACT_APP_API_URL}blogs`)
+    //`${process.env.REACT_APP_API_URL}api/${isAuth()._id}`
     .then(res => {
         const data = res.data
         for (var i = 0; i < data.length; i++){
@@ -76,7 +79,7 @@ function AllBlog() {
                 </div>
             </Link>
                 
-
+            <NotificationContainer/>
             </div>
 
         </>
