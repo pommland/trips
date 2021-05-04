@@ -29,8 +29,9 @@ function Login() {
                 setFormData({
                   ...formData,
                   username: '',
-                  textChange: 'Submitted'
                   password: '',
+                  textChange: 'Submitted'
+                  
             });
             isAuth() && isAuth().role === 'admin'
               ? Login.push('/admin')
