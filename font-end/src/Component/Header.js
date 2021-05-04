@@ -86,10 +86,11 @@ function Header() {
                                         Adventure Awaits, Go Find It.
                                         เราพร้อมสนับสนุนทุกการเดินทางของคุณ
                                     </p>
-
+                                    <Link to="/Create">
                                     <a class="btn-solid-lg page-scroll" href="#create" >
                                         CREATE TRIP
                                     </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div> 

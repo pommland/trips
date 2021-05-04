@@ -10,7 +10,7 @@ import AllBlog from './components/AllBlog';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import UserChangePassword from './components/UserChangePassword';
 import UserPersonalInformation from './components/UserPersonalInformation';
-
+import MyTripS from './createtrip/MyTripS';
 function App() {
     return (
     <BrowserRouter>
@@ -45,6 +45,11 @@ function App() {
                   exact
                   path="/Acount/Information"
                   component={UserPersonalInformation}
+              />
+                <PrivateRoute
+                  exact
+                  path="/Create"
+                  component={MyTripS}
               />
               <PrivateRoute
                   exact
