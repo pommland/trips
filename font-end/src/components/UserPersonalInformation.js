@@ -139,7 +139,7 @@ function UserPersonalInformation() {
             email    : formData.email,
             Tel : formData.tel,
             address : formData.address,
-            img : new_name
+            img : new_name != undefined ? (new_name) : formData.profileImg
           })
           .then(res => {
             updateUser(res, () => {
