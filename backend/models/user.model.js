@@ -9,7 +9,8 @@ const userSchema = new Schema({
   roles: { type: Number, required: true }, // Role 1 = ลูกค้า 2 = ผู้บริการ
   address : {type : String , default : ""}, 
   Tel : {type : String, default : ""},
-  resetPasswordLink : {type : String,default : ""}
+  resetPasswordLink : {type : String,default : ""},
+  img : {type : String,default : "/img/icon-uploadimg.png"}
   }, 
   {timestamps: true,}
   

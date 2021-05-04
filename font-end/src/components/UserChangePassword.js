@@ -52,7 +52,7 @@ function UserChangePassword() {
         {
           username: formData.username,
           email   : formData.email,
-          password: new_password
+          password: Bcrypt.hashSync(new_password)
         }
       )
       .then(res => {
