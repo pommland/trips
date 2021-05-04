@@ -40,14 +40,14 @@ function Header() {
                             <a class="nav-link page-scroll" href="/#member">MEMBERS</a>
                         </li>
                         
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                            
                                 <a class="nav-link page-scroll" href="/#popblog">BLOG</a>
            
-                        </li>
+                        </li> */}
                         <li class="nav-item">
                             <Link to="/Allblog">
-                                <a class="nav-link page-scroll" href="#headerblog">BLOG link</a>
+                                <a class="nav-link page-scroll" href="#headerblog">BLOG</a>
                             </Link>
                         </li>
 

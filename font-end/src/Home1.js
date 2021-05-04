@@ -22,7 +22,7 @@ function Home1() {
       {!isAuth()?(<Preloader/>):null}
       <Header/>
       <Intro/>
-      <Popblog/>
+      {/* <Popblog/> */}
       <Member/>
       <Footer/>
       <NotificationContainer/>
