@@ -8,6 +8,8 @@ import CreateBlog from './components/CreateBlog';
 import SingleBlog from './components/SingleBlog';
 import AllBlog from './components/AllBlog';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import UserChangePassword from './components/UserChangePassword';
+import UserPersonalInformation from './components/UserPersonalInformation';
 
 function App() {
     return (
@@ -38,6 +40,16 @@ function App() {
                   exact
                   path="/"
                   component={Home1}
+              />
+              <PrivateRoute
+                  exact
+                  path="/Acount/Information"
+                  component={UserPersonalInformation}
+              />
+              <PrivateRoute
+                  exact
+                  path="/Acount/Change_password"
+                  component={UserChangePassword}
               />
               <Route exact path="/login" component={Login} />
               <Redirect to="/login"/>

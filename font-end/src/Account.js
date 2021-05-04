@@ -6,7 +6,6 @@ import NavUser from './Component/NavUser';
 function Account() {
     return (
         <>
-            <NavUser/>
             <UserChangePassword/>
         </>
     )
