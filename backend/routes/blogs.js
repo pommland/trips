@@ -9,8 +9,8 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
-  const topic = (req.body.topic);
-  const description = req.body.topic;
+  const topic = req.body.topic;
+  const description = req.body.description;
   const date = req.body.date;
   const image = req.body.image;
   const newBlog = new Blog({
