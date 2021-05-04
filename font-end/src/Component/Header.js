@@ -56,7 +56,7 @@ function Header() {
                         </li>
                     </ul>
                     {isAuth()? (
-                        <Link to="/Account">
+                        <Link to="/Acount/Information">
                         <a class="btn-solid-lg page-scroll">
                                 {message}
                         </a>

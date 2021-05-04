@@ -6,6 +6,8 @@ import { updateUser, isAuth, getCookie, signout } from '../helpers/auth';
 import axios from 'axios';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import { Link } from 'react-router-dom';
+
 const Bcrypt = require("bcryptjs");
 
 
@@ -98,12 +100,24 @@ function UserChangePassword() {
       });
   };
 
+  function logout() {
+    signout(() => {
+      <Link to="/" />
+    });
+  }
+
 
   return (
-    <div className="userPersonalInfromation">
+    <div>
 
       {/* Side Bar */}
-      <SideBar />
+      <div className="side-bar-container">
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/"><a className="side-bar-text-container"><i class="fas fa-home" /><div>Home</div></a></Link></div>
+        <div className="user-side-none-selceted"><Link className="side-bar-menu" to="/Acount/Information"><a className="side-bar-text-container"><i class="far fa-user"/><div>Personal Information</div></a></Link></div>
+        <div className="user-side-bar-selceted"><div className="side-bar-menu"><a className="side-bar-text-container"><i class="fas fa-unlock-alt"/><div>Change Password</div></a></div></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to=""><a className="side-bar-text-container"><i class="fas fa-map-marked-alt"/><div>My TripS</div></a></Link></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" onClick={logout}><Link><i class="fas fa-sign-out-alt"/><div>Log Out</div></Link></Link></div>
+      </div>
 
       {/* Body */}
       <body className="page">
