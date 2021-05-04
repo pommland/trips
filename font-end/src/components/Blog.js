@@ -1,8 +1,10 @@
 import React, {useState,useEffect} from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 function Blog({ blog }) {
-    const url_img = "http://localhost:5000/image/files/" + blog.image
+    const url_img = `${process.env.REACT_APP_API_URL}image/files/` + blog.image
     return (
         <div>
 
@@ -27,6 +29,7 @@ function Blog({ blog }) {
                     </div>
                 </div>
             </div>
+            <NotificationContainer/>
         </div>
     )
 }

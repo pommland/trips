@@ -7,7 +7,7 @@ import { Link  } from 'react-router-dom';
 function SingleBlog() {
 
     let { username, topic, date, description, image } = useParams();
-    const url_img = "${process.env.REACT_APP_API_URL}image/files/" + image
+    const url_img = `${process.env.REACT_APP_API_URL}image/files/` + image
     return (
         <div>
             <Header />
