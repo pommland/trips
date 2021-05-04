@@ -6,6 +6,7 @@ import { authenticate, isAuth } from './helpers/auth';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import Select from 'react-select';
+import WaitActivate from './Component/WaitActivate';
 
 
 const options = [
@@ -189,8 +190,9 @@ function Login() {
                 options={options}
               /><br/>
                </div>
+               <Link to = "/wait">
               <input type="submit" class="btn-signin" value="Sign up" />
-              
+              </Link>
             </form>
           </div>
         </div>

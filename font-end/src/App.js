@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import UserChangePassword from './components/UserChangePassword';
 import UserPersonalInformation from './components/UserPersonalInformation';
 import MyTripS from './createtrip/MyTripS';
+import WaitActivate from './Component/WaitActivate';
 function App() {
     return (
     <BrowserRouter>
@@ -55,6 +56,12 @@ function App() {
                   exact
                   path="/Acount/Change_password"
                   component={UserChangePassword}
+              />
+
+                <PrivateRoute
+                  exact
+                  path="/wait"
+                  component={WaitActivate}
               />
               <Route exact path="/login" component={Login} />
               <Redirect to="/login"/>

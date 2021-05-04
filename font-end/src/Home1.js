@@ -10,22 +10,19 @@ import UserChangePassword from './components/UserChangePassword';
 import {isAuth} from './helpers/auth';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import WaitActivate from './Component/WaitActivate';
 
 function Home1() {
 
 
   return (
-    <>
-
-    
-                
+    <>  
       {!isAuth()?(<Preloader/>):null}
       <Header/>
       <Intro/>
-      {/* <Popblog/> */}
       <Member/>
       <Footer/>
-      <NotificationContainer/>
+      <NotificationContainer/> 
     </>
     
   );
