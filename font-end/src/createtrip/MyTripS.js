@@ -303,9 +303,7 @@ function MyTripS() {
                                         <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit" onClick = {checkAvailable1}>Check Availability</button>
                                         
                                     </div>
-                                    <h2>{createYourTrip.from}</h2>
-                                    <h2>{createYourTrip.to}</h2>
-                                    <h2>{createYourTrip.checkoutDate}</h2>
+                                   
                                 </div>                          
                             </form>
                          </div> 
