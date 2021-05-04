@@ -13,7 +13,6 @@ const Bcrypt = require("bcryptjs");
 
 function UserChangePassword() {
 
-
   const [formData, setFormData] = useState({
     username : '',
     email : '',

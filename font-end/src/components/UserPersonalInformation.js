@@ -4,7 +4,51 @@ import { Link } from 'react-router-dom';
 
 function UserPersonalInformation() {
 
-  var img_src = "/img/km.png";
+  const [formData, setFormData] = useState({
+    username:'',
+    email:'',
+    tel:'',
+    address:'',
+    role:'',
+    profileImg: '/img/icon-uploadimg.png',
+    img:''
+  });
+
+  const {
+    username,
+    email,
+    tel,
+    address,
+    role,
+    profileImg,
+    img
+  } = formData;
+
+	const [baseImage, setBaseImage] = useState('/img/icon-uploadimg.png');
+  
+  const uploadImage = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setBaseImage(base64);
+    console.log(e.target.files[0]);
+  };
+
+  console.log(baseImage)
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
 
   var information = {
     username: "Someone",
@@ -14,15 +58,6 @@ function UserPersonalInformation() {
     role: "User"
   };
 
-  const [formData, setFormData] = useState({
-    username:'',
-    email:'',
-    tel:'',
-    address:'',
-    role:'',
-    img:''
-  });
-
   function editInformation() {
     document.getElementById('account-information-edit-button').style.display = 'none';
     document.getElementById('account-information-save-button').style.display = '';
@@ -31,6 +66,7 @@ function UserPersonalInformation() {
     document.getElementById('account-information-display-email').style.display = 'none';
     document.getElementById('account-information-display-tel').style.display = 'none';
     document.getElementById('account-information-display-address').style.display = 'none';
+    document.getElementById('account-information-profile-change-button').style.display = '';
     document.getElementById('account-information-edit-username').style.display = '';
     document.getElementById('account-information-edit-email').style.display = '';
     document.getElementById('account-information-edit-tel').style.display = '';
@@ -53,6 +89,7 @@ function UserPersonalInformation() {
     document.getElementById('account-information-edit-email').style.display = 'none';
     document.getElementById('account-information-edit-tel').style.display = 'none';
     document.getElementById('account-information-edit-address').style.display = 'none';
+    document.getElementById('account-information-profile-change-button').style.display = 'none';
   }
 
   function cancel() {
@@ -67,10 +104,7 @@ function UserPersonalInformation() {
     document.getElementById('account-information-edit-email').style.display = 'none';
     document.getElementById('account-information-edit-tel').style.display = 'none';
     document.getElementById('account-information-edit-address').style.display = 'none';
-  }
-
-  function chooseImage() {
-
+    document.getElementById('account-information-profile-change-button').style.display = 'none';
   }
 
   function logout() {
@@ -84,11 +118,11 @@ function UserPersonalInformation() {
 
       {/* Side Bar */}
       <div className="side-bar-container">
-          <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/"><a className="side-bar-text-container"><i class="fas fa-home" /><div>Home</div></a></Link></div>
-          <div className="user-side-bar-selceted"><div className="side-bar-menu"><a className="side-bar-text-container"><i class="far fa-user"/><div>Personal Information</div></a></div></div>
-          <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/Acount/Change_password"><a className="side-bar-text-container"><i class="fas fa-unlock-alt"/><div>Change Password</div></a></Link></div>
-          <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to=""><a className="side-bar-text-container"><i class="fas fa-map-marked-alt"/><div>My TripS</div></a></Link></div>
-          <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" onClick={logout}><Link><i class="fas fa-sign-out-alt"/><div>Log Out</div></Link></Link></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/"><a className="side-bar-text-container"><i class="fas fa-home" /><div>Home</div></a></Link></div>
+        <div className="user-side-bar-selceted"><div className="side-bar-menu"><a className="side-bar-text-container"><i class="far fa-user"/><div>Personal Information</div></a></div></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/Acount/Change_password"><a className="side-bar-text-container"><i class="fas fa-unlock-alt"/><div>Change Password</div></a></Link></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to=""><a className="side-bar-text-container"><i class="fas fa-map-marked-alt"/><div>My TripS</div></a></Link></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" onClick={logout}><Link><i class="fas fa-sign-out-alt"/><div>Log Out</div></Link></Link></div>
       </div>
 
       {/* Body */}
@@ -96,9 +130,21 @@ function UserPersonalInformation() {
         <div className="information-layout">
           <div className="information-container">
             <div className="account-profile-image-container">
-              <a className="account-profile-image-change-button" onClick={chooseImage}>
-                <img className="account-profile-image" src="/img/km.png" />
-              </a>
+            <div >
+							<div className="account-information-profile-image-container">
+								<img src={baseImage} className="account-information-profile-image" alt="" id="account-profile-img" className="img" />
+							</div>
+							<input className="account-information-profile-image" type="file" id="input" onChange={(e) => uploadImage(e)} />
+							<div className="account-information-profile-change">
+								<label htmlFor="input" style={{display:'none'}} id="account-information-profile-change-button">
+									<i className="material-icons"></i>
+						      Choose your Photo
+					      </label>
+						</div>
+					</div>
+
+          
+
             </div>
             
               

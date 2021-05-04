@@ -25,7 +25,7 @@
     border-radius: 12px;
     background-color: #ffffff;
     left: 0;
-    height: 760px;
+    height: 880px;
     width: 620px;
     padding-top: 32px;
 }
@@ -214,4 +214,41 @@
     cursor: pointer;
     background-color: #e9e9e9;
     transition: 0.1;
+}
+
+.account-information-profile-change {
+    padding-top: 10px;
+    height: 40px;
+}
+
+.account-information-profile-image-container {
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    border: 3px #14bf98 solid;
+    border-radius: 5px;
+}
+
+.account-information-profile-image {
+    
+}
+
+.container-photo {
+    
+}
+
+.account-information-profile-change label {
+    background-color: rgb(40, 156, 119);
+    border-radius: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #ffffff;
+    transition: 0.4s;
+}
+
+.account-information-profile-change label:hover {
+    background-color: rgb(115, 235, 197);
+    cursor: pointer;
 }

@@ -36,8 +36,6 @@ export class CreateBlog extends Component {
 		this.setState({ [evt.target.name]: evt.target.value });
 		// console.log(this.state);
 	}
-
-
 	
 	
 	imageHandler = (e) => {
