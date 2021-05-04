@@ -8,6 +8,8 @@ import Popblog from './Component/Popblog';
 import Footer from './Component/Footer';
 import UserChangePassword from './components/UserChangePassword';
 import {isAuth} from './helpers/auth';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function Home1() {
 
@@ -23,6 +25,7 @@ function Home1() {
       <Popblog/>
       <Member/>
       <Footer/>
+      <NotificationContainer/>
     </>
     
   );

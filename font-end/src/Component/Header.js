@@ -55,11 +55,18 @@ function Header() {
                             <a class="nav-link page-scroll" href="/#about">ABOUT</a>
                         </li>
                     </ul>
+                    {isAuth()? (
+                        <Link to="/Account">
+                        <a class="btn-solid-lg page-scroll">
+                                {message}
+                        </a>
+                        </Link>
+                    ):(
                     <Link to="/Login">
                     <a class="btn-solid-lg page-scroll">
                             {message}
                     </a>
-                    </Link>
+                    </Link>)}
                 </div>
             </nav> 
             {/* <!-- end of navbar --> */}
