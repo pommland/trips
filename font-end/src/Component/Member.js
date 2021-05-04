@@ -21,19 +21,19 @@ function Member() {
                             {/* <!-- Team Member 1--> */}
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" src="images/Pamai.png" alt="alternative" />
+                                    <img class="img-fluid" src="images/Kaopod.png" alt="alternative" />
                                 </div> 
                                 <p class="p-large">Nawapol Krudpun</p>
-                                <p class="job-title">Font-End Developer</p>
+                                <p class="job-title">Front-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">
-                                        <a href="#your-link">
+                                        <a href="https://www.facebook.com/kaopod.nathamon">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-facebook-f fa-stack-1x"></i>
                                         </a>
                                     </span>
                                     <span class="fa-stack">
-                                        <a href="#your-link">
+                                        <a href="https://github.com/nathamon24">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-github fa-stack-1x"></i>
                                         </a>
@@ -48,7 +48,7 @@ function Member() {
                                     <img class="img-fluid" src="images/Pamai.png" alt="alternative" />
                                 </div> 
                                 <p class="p-large">Kanokvan Sangvaraporn</p>
-                                <p class="job-title">Font-End Developer</p>
+                                <p class="job-title">Front-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">
                                         <a href="https://web.facebook.com/kanokvan.sangvaraporn/">
@@ -69,19 +69,19 @@ function Member() {
                             {/* <!-- Team Member 3 --> */}
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" src="images/Pamai.png" alt="alternative" />
+                                    <img class="img-fluid" src="images/Pure.png" alt="alternative" />
                                 </div> 
-                                <p class="p-large">Kanokvan Sangvaraporn</p>
-                                <p class="job-title">Font-End Developer</p>
+                                <p class="p-large">Nitipoom Klaynium</p>
+                                <p class="job-title">Front-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">
-                                        <a href="https://web.facebook.com/kanokvan.sangvaraporn/">
+                                        <a href="https://www.facebook.com/KuyPure/">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-facebook-f fa-stack-1x"></i>
                                         </a>
                                     </span>
                                     <span class="fa-stack">
-                                        <a href="https://github.com/BearKS">
+                                        <a href="https://github.com/NitipoomKlaynium">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-github fa-stack-1x"></i>
                                         </a>
@@ -100,19 +100,19 @@ function Member() {
                             {/* <!-- Team Member 4--> */}
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" src="images/Pamai.png" alt="alternative" />
+                                    <img class="img-fluid" src="images/Pooh.png" alt="alternative" />
                                 </div> 
                                 <p class="p-large">Kanokvan Sangvaraporn</p>
                                 <p class="job-title">Back-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">
-                                        <a href="https://web.facebook.com/kanokvan.sangvaraporn/">
+                                        <a href="https://www.facebook.com/belivepooh">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-facebook-f fa-stack-1x"></i>
                                         </a>
                                     </span>
                                     <span class="fa-stack">
-                                        <a href="https://github.com/BearKS">
+                                        <a href="github.com/nitipat009">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-github fa-stack-1x"></i>
                                         </a>
@@ -124,19 +124,19 @@ function Member() {
                             {/* <!-- Team Member 5 --> */}
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" src="images/Pamai.png" alt="alternative" />
+                                    <img class="img-fluid" src="images/Boat.png" alt="alternative" />
                                 </div> 
-                                <p class="p-large">Kanokvan Sangvaraporn</p>
+                                <p class="p-large">Nawapol Krudpun</p>
                                 <p class="job-title">Back-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">
-                                        <a href="https://web.facebook.com/kanokvan.sangvaraporn/">
+                                        <a href="https://www.facebook.com/boat.krudpun/">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-facebook-f fa-stack-1x"></i>
                                         </a>
                                     </span>
                                     <span class="fa-stack">
-                                        <a href="https://github.com/BearKS">
+                                        <a href="https://github.com/arbruzaz">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-github fa-stack-1x"></i>
                                         </a>
@@ -148,19 +148,19 @@ function Member() {
                             {/* <!-- Team Member 6 --> */}
                             <div class="team-member">
                                 <div class="image-wrapper">
-                                    <img class="img-fluid" src="images/Pamai.png" alt="alternative" />
+                                    <img class="img-fluid" src="images/Pom.png" alt="alternative" />
                                 </div> 
-                                <p class="p-large">Kanokvan Sangvaraporn</p>
+                                <p class="p-large">Nawapat Sriboonrueng</p>
                                 <p class="job-title">Back-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">
-                                        <a href="https://web.facebook.com/kanokvan.sangvaraporn/">
+                                        <a href="https://web.facebook.com/Pomnawapat">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-facebook-f fa-stack-1x"></i>
                                         </a>
                                     </span>
                                     <span class="fa-stack">
-                                        <a href="https://github.com/BearKS">
+                                        <a href="https://github.com/pommland">
                                             <span class="hexagon"></span>
                                             <i class="fab fa-github fa-stack-1x"></i>
                                         </a>

@@ -5,6 +5,14 @@ import { Link, Redirect } from 'react-router-dom';
 import { authenticate, isAuth } from './helpers/auth';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import Select from 'react-select';
+import Selector from './components/Selector';
+
+
+const options = [
+  { value: '0', label: 'Traveler' },
+  { value: '1', label: 'Enterprise' },
+];
 
 function Login() {
     const [formData, setFormData] = useState({
@@ -36,9 +44,9 @@ function Login() {
             });
             // console.log(res.data)
             
-            isAuth().role === 'admin'
+            isAuth() && isAuth().role === 'admin'
               ? <Redirect to='/Allblog' />    //Login.push('/admin') 
-              : <Redirect to='/' />
+              : <Redirect to='/Allblog' />
             // console.log(`Hey ${res.data.username}, Welcome back!`);
             NotificationManager.success(`Hey ${res.data.user.username}`,'Welcome Back!');
             
@@ -71,7 +79,6 @@ function Login() {
     email_r   : '',
     textChange: 'Sign Up'
   });
-
   const { username_r, password_r ,email_r,textChange_r} = formData_r;
   const handleChange_r = text => e => {
     setFormData_r({ ...formData_r, [text]: e.target.value });
@@ -116,12 +123,12 @@ function Login() {
       NotificationManager.warning('Please fill all fields', 'Close after 3000ms', 3000);
     }
   };
-  
+
 
   return (
     <>
       <div class="container-login">
-      {isAuth() ? <Redirect to='/' /> : null}
+      {isAuth() ? <Redirect to='/Allblog' /> : null}
         <div class="forms-container">
           <div class="signin-signup">
 
@@ -166,7 +173,11 @@ function Login() {
                 onChange={handleChange_r('email_r')}
                 value={email_r}/>
               </div>
+              <div style={{width: '180px'}}>
+               <Selector/><br/>
+               </div>
               <input type="submit" class="btn-signin" value="Sign up" />
+              
             </form>
           </div>
         </div>
