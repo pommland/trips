@@ -136,7 +136,7 @@ function Login() {
   return (
     <>
       <div class="container-login">
-      {isAuth() ? <Redirect to='/Allblog' /> : null}
+      {isAuth() ? <Redirect to='/' /> : null}
         <div class="forms-container">
           <div class="signin-signup">
 
