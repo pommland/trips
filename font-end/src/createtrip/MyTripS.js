@@ -1,5 +1,6 @@
 import React ,{useState , Component  }from 'react'
 import $ from "jquery";
+import Header from '../Component/Header';
 
 
 function MyTripS() {
@@ -220,6 +221,7 @@ function MyTripS() {
  
     return (
         <>
+        <Header/>
             <div id="MyTripTop" class="tm-page-wrap mx-auto">
                 <section class="tm-banner">
                 <div class="tm-container-outer tm-banner-bg">
