@@ -36,9 +36,9 @@ function Login() {
             });
             // console.log(res.data)
             
-            isAuth() && isAuth().role === 'admin'
+            isAuth().role === 'admin'
               ? <Redirect to='/Allblog' />    //Login.push('/admin') 
-              : <Redirect to='/Allblog' />
+              : <Redirect to='/' />
             // console.log(`Hey ${res.data.username}, Welcome back!`);
             NotificationManager.success(`Hey ${res.data.user.username}`,'Welcome Back!');
             
@@ -121,7 +121,7 @@ function Login() {
   return (
     <>
       <div class="container-login">
-      {isAuth() ? <Redirect to='/Allblog' /> : null}
+      {isAuth() ? <Redirect to='/' /> : null}
         <div class="forms-container">
           <div class="signin-signup">
 

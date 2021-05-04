@@ -1,20 +1,17 @@
-import React,{useState} from 'react'
+import React,{useState , useEffect} from 'react'
 import { Link } from 'react-router-dom';
-
+import {isAuth} from '../helpers/auth';
 function Header() {
     
-    const [isLoggedIn, setisLoggedIn] = useState(true);
-    const [isLoggedIn_user, setisLoggedIn_user] = useState(false);
-    const [isLoggedIn_host, setisLoggedIn_host] = useState(false);
+    // const [isLoggedIn, setisLoggedIn] = useState(
+    //     true
+    // );
+    // const [isLoggedIn_user, setisLoggedIn_user] = useState(false);
+    // const [isLoggedIn_host, setisLoggedIn_host] = useState(false);
 
     var message ="LOGIN | SIGNUP";
-    if(isLoggedIn){
-        if(isLoggedIn_user){
-            message = "Account1"
-        }
-        else if(isLoggedIn_host){
-            message = "Account2"
-        }
+    if(isAuth()){
+        message = isAuth().username;
     }
     return (
     

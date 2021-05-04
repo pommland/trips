@@ -7,14 +7,17 @@ import Member from './Component/Member';
 import Popblog from './Component/Popblog';
 import Footer from './Component/Footer';
 import UserChangePassword from './components/UserChangePassword';
-
+import {isAuth} from './helpers/auth';
 
 function Home1() {
 
 
   return (
     <>
-      <Preloader/>
+
+    
+                
+      {!isAuth()?(<Preloader/>):null}
       <Header/>
       <Intro/>
       <Popblog/>

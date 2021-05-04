@@ -1,15 +1,14 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-
+import {isAuth} from '../helpers/auth'
 const PrivateRoute = ({ component: Component, ...rest }) => {
-    let value = '; ' + document.cookie;
-    let parts = value.split('; accessToken=');
+    let parts = isAuth();
     return (
         <Route
             {...rest}
             render=
                 {(props) =>
-                    parts[1] ? (
+                    parts ? (
                         <Component {...props} />
                     ) : (
                         <Redirect
