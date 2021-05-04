@@ -103,7 +103,7 @@ export class CreateBlog extends Component {
 		   }
 	}else{
 		NotificationManager.info('Please,Login!');
-		<Redirect to='/Allblog' />
+		<Redirect to='/Login' />
 	}
   
    }
