@@ -1,17 +1,63 @@
 import Home1 from './Home1';
 import './App.css';
 import React from 'react';
-import UserChangePassword from './components/UserChangePassword';
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import Login from './Login';
+import Account from './Account';
+import CreateBlog from './components/CreateBlog';
+import SingleBlog from './components/SingleBlog';
+import AllBlog from './components/AllBlog';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
-
-
-  return (
-    <>
-      <Home1/>
-    </>
-    
+    return (
+    <BrowserRouter>
+      <>
+          <Switch>
+              <PrivateRoute
+                  exact
+                  path="/Allblog"
+                  component={AllBlog}
+              />
+              <PrivateRoute
+                  exact
+                  path="/:username/:topic/:date/:description/:image"
+                  component={SingleBlog}
+              />
+              <PrivateRoute
+                  exact
+                  path="/cblog"
+                  component={CreateBlog}
+              />
+              <PrivateRoute
+                  exact
+                  path="/Account"
+                  component={Account}
+              />
+              <PrivateRoute
+                  exact
+                  path="/"
+                  component={Home1}
+              />
+              <Route exact path="/login" component={Login} />
+              <Redirect to="/login"/>
+          </Switch>
+      </>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+// function App() {
+
+
+//   return (
+//     <>
+//       <Home1/>
+//     </>
+    
+//   );
+// }
+
+// export default App;
