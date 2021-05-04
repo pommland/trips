@@ -160,8 +160,21 @@ function UserPersonalInformation() {
           });
         })
         .catch(err => {
-          NotificationManager.error('Fail!', 'Click me!', 5000, () => {
+          NotificationManager.error('Fail to update Image part (Old Image)!', 'Click me!', 5000, () => {
           alert('Try Again!');});
+          axios.post(`${process.env.REACT_APP_API_URL}api/update/`+isAuth()._id,{
+            username : formData.username,
+            password : formData.password,
+            email    : formData.email,
+            Tel : formData.tel,
+            address : formData.address,
+          })
+          .then(res => {
+            updateUser(res, () => {
+              NotificationManager.success("User Updated!","Congratulation!");
+            });
+            logout()
+          })
         });
         
           
