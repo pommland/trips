@@ -14,6 +14,7 @@ const options = [
 ];
 
 function Login() {
+  // ----------- event ปุ่ม Sign in----------------------//
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -43,9 +44,9 @@ function Login() {
             });
             // console.log(res.data)
             
-            isAuth() && isAuth().role === 'admin'
-              ? <Redirect to='/Allblog' />    //Login.push('/admin') 
-              : <Redirect to='/Allblog' />
+            isAuth() && isAuth().role === '1' // 0 -- Travel 1 --- Enterprise
+              ? <Redirect to='/' />    //Login.push('/admin') 
+              : <Redirect to='/' />
             // console.log(`Hey ${res.data.username}, Welcome back!`);
             NotificationManager.success(`Hey ${res.data.user.username}`,'Welcome Back!');
             
@@ -71,7 +72,10 @@ function Login() {
       NotificationManager.warning('Please fill all fields', 'Close after 3000ms', 3000);
     }
   };
+  // ----------- event ปุ่ม Sign in----------------------//
 
+
+  
   // ----------- event ปุ่ม Sign up----------------------//
   const [formData_r, setFormData_r] = useState({
     username_r: '',
