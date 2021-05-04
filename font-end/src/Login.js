@@ -40,7 +40,7 @@ function Login() {
               ? <Redirect to='/Allblog' />    //Login.push('/admin') 
               : <Redirect to='/' />
             // console.log(`Hey ${res.data.username}, Welcome back!`);
-            NotificationManager.success(`Hey ${res.data.user.username}`,'Welcome Back!');
+            NotificationManager.success(`Hey ${res.data.user.username}`,'Welcome Back!', 1000);
             
           });
         })
