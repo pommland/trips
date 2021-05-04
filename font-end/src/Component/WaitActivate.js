@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function WaitActivate() {
     return (
         <>
-            <header id="header" class="header">
+            <header id="header" class="headerwait">
                 <div class="header-content">
                     <div class="container">
                         <div class="row">
@@ -15,11 +15,10 @@ function WaitActivate() {
                                         TripS, Welcome
                                     </h1>
                                     <p class="p-heading p-large">
-                                        Please Activate Your Mail
-                                        เราพร้อมสนับสนุนทุกการเดินทางของคุณ
+                                    Please click the activation link we sent to your email.
                                     </p>
                                     <Link to="/login">
-                                    <a class="btn-solid-lg page-scroll" href="#create" >
+                                    <a class="btn-solid-lg page-scroll" href="" >
                                         Back
                                     </a>
                                     </Link>

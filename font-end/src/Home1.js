@@ -18,11 +18,11 @@ function Home1() {
   return (
     <>  
       {!isAuth()?(<Preloader/>):null}
-      <Header/>
+      <Header/> 
       <Intro/>
       <Member/>
       <Footer/>
-      <NotificationContainer/> 
+      <NotificationContainer/>
     </>
     
   );
