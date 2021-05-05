@@ -23,7 +23,7 @@ function Member() {
                                 <div class="image-wrapper">
                                     <img class="img-fluid" src="images/Kaopod.png" alt="alternative" />
                                 </div> 
-                                <p class="p-large">Nawapol Krudpun</p>
+                                <p class="p-large">Nathamon Boonprasert</p>
                                 <p class="job-title">Front-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">
