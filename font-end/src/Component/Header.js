@@ -56,11 +56,19 @@ function Header() {
                         </li>
                     </ul>
                     {isAuth()? (
-                        <Link to="/Acount/Information">
-                        <a class="btn-solid-lg page-scroll">
-                                {message}
-                        </a>
-                        </Link>
+                        isAuth().roles == 1? (
+                            <Link to="/Account/host/Information">
+                                <a class="btn-solid-lg page-scroll">
+                                    {message}
+                                </a>
+                            </Link>
+                        ) : (
+                            <Link to="/Account/user/Information">
+                                <a class="btn-solid-lg page-scroll">
+                                    {message}
+                                </a>
+                            </Link>
+                        )
                     ):(
                     <Link to="/Login">
                     <a class="btn-solid-lg page-scroll">
