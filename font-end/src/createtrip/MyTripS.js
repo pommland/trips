@@ -314,10 +314,10 @@ function MyTripS() {
                                                 min={new Date().toISOString().split('T')[0]} onChange={(ev) => setCreateYourTrip({ ...createYourTrip, checkoutDate: ev.target.value })} />
                                         </div>
 
-                                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
+                                        {/* <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label for="btnSubmit">&nbsp;</label>
                                             <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit" onClick={checkAvailable1}>Check Weather</button>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </form>
                             </div>
