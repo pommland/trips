@@ -85,8 +85,8 @@ exports.registerController = (req, res) => {
 
 //active account
 exports.activationController = (req, res) => {
-    const { token } = req.params.token;
-  
+    
+    const token = req.params.token;
     if (token) {
       jwt.verify(token, process.env.JWT_ACCOUNT_ACTIVATION, (err, decoded) => {
         if (err) {
