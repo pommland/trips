@@ -256,8 +256,8 @@ function UserPersonalInformation() {
       <div className="side-bar-container">
         <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/"><a className="side-bar-text-container"><i class="fas fa-home" /><div>Home</div></a></Link></div>
         <div className="user-side-bar-selceted"><div className="side-bar-menu"><a className="side-bar-text-container"><i class="far fa-user"/><div>Personal Information</div></a></div></div>
-        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/Account/user/Change_password"><a className="side-bar-text-container"><i class="fas fa-unlock-alt"/><div>Change Password</div></a></Link></div>
-        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to=""><a className="side-bar-text-container"><i class="fas fa-map-marked-alt"/><div>My TripS</div></a></Link></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/Account/host/Change_password"><a className="side-bar-text-container"><i class="fas fa-unlock-alt"/><div>Change Password</div></a></Link></div>
+        <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" to="/Account/host/add_hotel"><a className="side-bar-text-container"><i class="fas fa-hotel"/><div>Add Hotel</div></a></Link></div>
         <div className="user-side-bar-none-selceted"><Link className="side-bar-menu" onClick={logout}><Link><i class="fas fa-sign-out-alt"/><div>Log Out</div></Link></Link></div>
       </div>
 

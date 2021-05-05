@@ -12,57 +12,77 @@ import UserChangePassword from './components/UserChangePassword';
 import UserPersonalInformation from './components/UserPersonalInformation';
 import MyTripS from './createtrip/MyTripS';
 import WaitActivate from './Component/WaitActivate';
+import HostIPersonalformation from './components/HostPersonalInformation';
+import HostChangePassword from './components/HostChangePassword';
+import HostAddHotel from './components/HostAddHotel';
+
 function App() {
     return (
     <BrowserRouter>
       <>
           <Switch>
-              <PrivateRoute
+                <PrivateRoute
                   exact
                   path="/Allblog"
                   component={AllBlog}
-              />
-              <PrivateRoute
+                />
+                <PrivateRoute
                   exact
                   path="/:username/:topic/:date/:description/:image"
                   component={SingleBlog}
-              />
-              <PrivateRoute
+                />
+                <PrivateRoute
                   exact
                   path="/cblog"
                   component={CreateBlog}
-              />
-              <PrivateRoute
+                />
+                <PrivateRoute
                   exact
                   path="/Account"
                   component={Account}
-              />
-              <PrivateRoute
+                />
+                <PrivateRoute
                   exact
                   path="/"
                   component={Home1}
-              />
-              <PrivateRoute
+                />
+                <PrivateRoute
                   exact
-                  path="/Acount/Information"
+                  path="/Account/user/Information"
                   component={UserPersonalInformation}
-              />
+                />
                 <PrivateRoute
                   exact
                   path="/Create"
                   component={MyTripS}
-              />
-              <PrivateRoute
+                />
+                <PrivateRoute
                   exact
-                  path="/Acount/Change_password"
+                  path="/Account/user/Change_password"
                   component={UserChangePassword}
-              />
+                />
 
                 <PrivateRoute
                   exact
                   path="/wait"
                   component={WaitActivate}
-              />
+                />
+
+                <PrivateRoute
+                  exact
+                  path="/Account/host/Information"
+                  component={HostIPersonalformation}
+                />
+                <PrivateRoute
+                  exact
+                  path="/Account/host/Change_password"
+                  component={HostChangePassword}
+                />
+                <PrivateRoute
+                  exact
+                  path="/Account/host/add_hotel"
+                  component={HostAddHotel}
+                />
               <Route exact path="/login" component={Login} />
               <Redirect to="/login"/>
           </Switch>
