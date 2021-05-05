@@ -282,7 +282,7 @@ function MyTripS() {
 
                                         <div class="form-group tm-form-group tm-form-group-1">
                                         
-                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                            
                                                 <label for="inputAdult">Adult</label>
                                                 <input name="adult" type="number" min="1" class="form-control" id="inputCity" placeholder="Type your destination..." 
@@ -290,7 +290,7 @@ function MyTripS() {
                                            
                                             </div>
 
-                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                             
                                                 <label for="inputChildren">Children</label>
                                                 <input name="child" type="number" min="0" class="form-control" id="inputCity" placeholder="Type your destination..." 
@@ -327,21 +327,19 @@ function MyTripS() {
                         <div class="container">
                             <div class="tm-container-outer tm-banner-bg2">
                                 <div class="row tm-banner-row tm-banner-row-header">
-                                    <div class="col-xs-12">
                                         <div class="tm-banner-header">
                                             <p class="tm-banner-subtitle">Travel By</p>
                                         </div>
 
-                                    </div>
+                                   
                                 </div>
                                 <div class="row tm-banner-row" id="tm-section-search">
 
-                                    <form action="index.html" method="get" class="tm-search-form tm-section-pad-2" autocomplete="off">
+                                    <form action="index.html" method="get" class="tm-search-form tm-section-pad-3" autocomplete="off">
 
                                         <div class="form-row tm-search-form-row">
-                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
+                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-2">
                                                 <label for="inputChildren">Vehicle</label>
-
                                                 <Select
                                                     value={vehicle}
                                                     onChange={handleChange('vehicle')}
@@ -349,7 +347,7 @@ function MyTripS() {
                                                 />
                                             </div>
 
-                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
+                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-2">
                                                 <label for="inputChildren">Company</label>
                                                 <Select
                                                     value={company}
@@ -358,7 +356,7 @@ function MyTripS() {
                                                 />
                                             </div>
 
-                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                            <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
                                                 <label for="inputChildren">Time to Arrive</label>
                                                 <div>
                                                 <input name="time" type="time"  class="form-control" id="inputCity" placeholder="Type your destination..." onChange={(ev) => setTravel({ ...travel, child: ev.target.value })} value={travel.timeToArrive} />
@@ -387,9 +385,9 @@ function MyTripS() {
                                 </div>
                                 <div class="row tm-banner-row" id="tm-section-search">
 
-                                    <form action="index.html" method="get" class="tm-search-form tm-section-pad-2" autocomplete="off">
+                                    <form action="index.html" method="get" class="tm-search-form tm-section-pad-3" autocomplete="off">
                                         <div class="form-row tm-search-form-row">
-                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
+                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-2">
                                                 <label for="inputChildren">Where?</label>
                                                 <Select
                                                     value={hotel}
@@ -398,17 +396,17 @@ function MyTripS() {
                                                 />
                                             </div>
 
-                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
+                                            <div class="form-group tm-group-group tm-form-group-pad tm-form-group-2">
                                                 <label for="inputChildren">How many rooms?</label>
-                                                <input name="room" type="number" min="0" max="10" class="form-control" id="inputCity" placeholder="Type your destination..." 
+                                                <input name="room" type="number" min="0" max="10" class="form-control" id="inputCity" placeholder="Type number..." 
                                                         onChange={(ev) => setChooseHotel({ ...chooseHotel, rooms: ev.target.value })} value={chooseHotel.rooms} />
                                             </div>
 
-                                            <div class="tm-banner-header">
+                          
                                                 <label for="btnSubmit">&nbsp;</label>
                                                 <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"
                                                  onClick = {confirmHotel}>Confirm Your Hotel</button>
-                                            </div>
+                                      
                                         </div>
                                     </form>
                                 </div>
