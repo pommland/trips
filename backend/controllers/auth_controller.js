@@ -60,10 +60,10 @@ exports.registerController = (req, res) => {
         subject: 'Account activation link',
         html: `
                   <h1>Please use the following to activate your account</h1>
-                  <p>${process.env.CLIENT_URL}/users/activate/${token}</p>
+                  <p>${process.env.REACT_APP_API_URL}api/activation/${token}</p>
                   <hr />
                   <p>This email may containe sensetive information</p>
-                  <p>${process.env.CLIENT_URL}</p>
+                  <p>${process.env.REACT_APP_API_URL}</p>
               `
       };
   
@@ -85,7 +85,7 @@ exports.registerController = (req, res) => {
 
 //active account
 exports.activationController = (req, res) => {
-    const { token } = req.body;
+    const { token } = req.params.token;
   
     if (token) {
       jwt.verify(token, process.env.JWT_ACCOUNT_ACTIVATION, (err, decoded) => {
