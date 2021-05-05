@@ -187,9 +187,9 @@ function Login() {
                 options={options}
               /><br/>
                </div>
-               <Link to = "/wait">
+               {/* <Link to = "/wait"> */}
               <input type="submit" class="btn-signin" value="Sign up" />
-              </Link>
+              {/* </Link> */}
             </form>
           </div>
         </div>
