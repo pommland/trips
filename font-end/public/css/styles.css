@@ -744,7 +744,7 @@ input[type='checkbox'] {
 	background-size: cover;
 }
 .headerwait {
-	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/about.jpg') center center no-repeat;
+	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../images/about2.jpg') center center no-repeat;
 	background-size: cover;
 }
 .header .header-content {

@@ -10,6 +10,22 @@ const vehicleChoice = [
     { value: 'car', label: 'Car' },
     { value: 'airplane', label: 'Airplane' },
 ];
+
+const companyChoice = [
+    { value: 'a', label: 'A' },
+    { value: 'b', label: 'B' },
+    { value: 'c', label: 'C' },
+];
+
+const hotelChoice = [
+    { value: 'ahotel', label: 'A Hotel' },
+    { value: 'bhotel', label: 'B Hotel' },
+    { value: 'chotel', label: 'C Hotel' },
+    { value: 'dhotel', label: 'D Hotel' },
+    { value: 'ehotel', label: 'E Hotel' },
+    { value: 'fhotel', label: 'F Hotel' },
+];
+
 const province_th = [
     { value: 'กรุงเทพฯ', label: 'กรุงเทพฯ' },
     { value: 'กระบี่', label: 'กระบี่' },
@@ -92,113 +108,26 @@ const province_th = [
 
 function MyTripS() {
 
-    //   var province_th_map = {
-    //     'krabi': 'กระบี่',
-    //     'bangkok': 'กรุงเทพมหานคร',
-    //     'kanchanaburi': 'กาญจนบุรี',
-    //     'kalasin': 'กาฬสินธุ์',
-    //     'kamphaengphet': 'กำแพงเพชร',
-    //     'khonkaen': 'ขอนแก่น',
-    //     'chanthaburi': 'จันทบุรี',
-    //     'chachoengsao': 'ฉะเชิงเทรา',
-    //     'chonburi': 'ชลบุรี',
-    //     'chainat': 'ชัยนาท',
-    //     'chaiyaphum': 'ชัยภูมิ',
-    //     'chumphon': 'ชุมพร',
-    //     'chiangrai': 'เชียงราย',
-    //     'chiangmai': 'เชียงใหม่',
-    //     'trang': 'ตรัง',
-    //     'trat': 'ตราด',
-    //     'tak': 'ตาก',
-    //     'nakhonnayok': 'นครนายก',
-    //     'nakhonpathom': 'นครปฐม',
-    //     'nakhonphanom': 'นครพนม',
-    //     'nakhonratchasima': 'นครราชสีมา',
-    //     'nakhonsithammarat': 'นครศรีธรรมราช',
-    //     'nakhonsawan': 'นครสวรรค์',
-    //     'nonthaburi': 'นนทบุรี',
-    //     'narathiwat': 'นราธิวาส',
-    //     'nan': 'น่าน',
-    //     'buriram': 'บุรีรัมย์',
-    //     'pathumthani': 'ปทุมธานี',
-    //     'prachuapkhirikhan': 'ประจวบคีรีขันธ์',
-    //     'prachinburi': 'ปราจีนบุรี',
-    //     'pattani': 'ปัตตานี',
-    //     'ayutthaya': 'พระนครศรีอยุธยา',
-    //     'phayao': 'พะเยา',
-    //     'phangnga': 'พังงา',
-    //     'phatthalung': 'พัทลุง',
-    //     'phichit': 'พิจิตร',
-    //     'phitsanulok': 'พิษณุโลก',
-    //     'phetchaburi': 'เพชรบุรี',
-    //     'phetchabun': 'เพชรบูรณ์',
-    //     'phrae': 'แพร่',
-    //     'phuket': 'ภูเก็ต',
-    //     'mahasarakham': 'มหาสารคาม',
-    //     'mukdahan': 'มุกดาหาร',
-    //     'maehongson': 'แม่ฮ่องสอน',
-    //     'yasothon': 'ยโสธร',
-    //     'yala': 'ยะลา',
-    //     'roiet': 'ร้อยเอ็ด',
-    //     'ranong': 'ระนอง',
-    //     'rayong': 'ระยอง',
-    //     'ratchaburi': 'ราชบุรี',
-    //     'lopburi': 'ลพบุรี',
-    //     'loei': 'เลย',
-    //     'lampang': 'ลำปาง',
-    //     'lamphun': 'ลำพูน',
-    //     'sisaket': 'ศรีสะเกษ',
-    //     'sakonnakhon': 'สกลนคร',
-    //     'songkhla': 'สงขลา',
-    //     'satun': 'สตูล',
-    //     'samutprakan': 'สมุทรปราการ',
-    //     'samutsongkhram': 'สมุทรสงคราม',
-    //     'samutsakhon': 'สมุทรสาคร',
-    //     'sakaeo': 'สระแก้ว',
-    //     'saraburi': 'สระบุรี',
-    //     'singburi': 'สิงห์บุรี',
-    //     'sukhothai': 'สุโขทัย',
-    //     'suphanburi': 'สุพรรณบุรี',
-    //     'suratthani': 'สุราษฎร์ธานี',
-    //     'surin': 'สุรินทร์',
-    //     'nongkhai': 'หนองคาย',
-    //     'nongbualamphu': 'หนองบัวลำภู',
-    //     'angthong': 'อ่างทอง',
-    //     'amnatcharoen': 'อำนาจเจริญ',
-    //     'udonthani': 'อุดรธานี',
-    //     'uttaradit': 'อุตรดิตถ์',
-    //     'uthaithani': 'อุทัยธานี',
-    //     'ubonratchathani': 'อุบลราชธานี',
-    //     'betong': 'เบตง'
-    //   }
-
     const [createYourTrip, setCreateYourTrip] = useState([{
-
         from: '',
         to: '',
         adult: 0,
         child: 0,
         checkinDate: '',
         checkoutDate: '',
-
-
     }]
     );
 
     const [travel, setTravel] = useState([{
-
         vehicle: '',
         company: '',
         timeToArrive: '',
-
-
     }]);
+
     const [chooseHotel, setChooseHotel] = useState([{
         where: '',
         rooms: 0
-
     }]);
-
     const checkAvailable1 = () => {
 
     }
@@ -226,12 +155,11 @@ function MyTripS() {
     $('#txtDate').attr('min', maxDate);
     const handleChange = selectedOption => e => {
         setCreateYourTrip({ ...createYourTrip, [selectedOption]: e });
-
-
     };
     const { from, to, adult, child, checkinDate, checkoutDate } = createYourTrip;
     const { vehicle, company, timeToArrive } = travel;
-    const { where, rooms } = travel;
+    const { hotel, rooms } = chooseHotel;
+
     return (
         <>
             <Header />
@@ -249,75 +177,50 @@ function MyTripS() {
                                 </div>
                             </div>
                             <div class="row tm-banner-row" id="tm-section-search">
-
                                 <form action="index.html" method="get" class="tm-search-form tm-section-pad-2" autocomplete="off">
                                     <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label for="inputCity">From</label>
 
-                                            {/* <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination..." onChange = {(ev) => setCreateYourTrip({...createYourTrip, from: ev.target.value})} value ={createYourTrip.from} /> */}
                                             <Select
-                                                //style={{width: `${(8*this.state.selectedOption2.length) + 100}px`}}
                                                 value={from}
                                                 onChange={handleChange('from')}
                                                 options={province_th}
-
                                             />
 
                                         </div>
                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label for="inputCity">To</label>
-                                            {/* <input name="destination" type="text" class="form-control" id="inputCity" placeholder="Type your destination..."  onChange = {(ev) => setCreateYourTrip({...createYourTrip, to: ev.target.value})} value ={createYourTrip.to} /> */}
+                                            
                                             <Select
-                                                //style={{width: `${(8*this.state.selectedOption2.length) + 100}px`}}
                                                 value={to}
                                                 onChange={handleChange('to')}
                                                 options={province_th}
-
                                             />
 
                                         </div>
 
                                         <div class="form-group tm-form-group tm-form-group-1">
+                                        
                                             <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
+                                           
                                                 <label for="inputAdult">Adult</label>
-                                                <input name="adult" type="number" min="1" class="form-control" id="inputCity" placeholder="Type your destination..." onChange={(ev) => setCreateYourTrip({ ...createYourTrip, adult: ev.target.value })} value={createYourTrip.adult} />
-                                                {/* <select name="adult" class="form-control tm-select" id="inputAdult" onChange = {(ev) => setCreateYourTrip({...createYourTrip, adult: ev.target.value})} value ={createYourTrip.adult} >
-                                                <option value="1" selected>1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>                                         */}
+                                                <input name="adult" type="number" min="1" class="form-control" id="inputCity" placeholder="Type your destination..." 
+                                                        onChange={(ev) => setCreateYourTrip({ ...createYourTrip, adult: ev.target.value })} value={createYourTrip.adult} />
+                                           
                                             </div>
 
                                             <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-
+                                            
                                                 <label for="inputChildren">Children</label>
-                                                <input name="child" type="number" min="0" class="form-control" id="inputCity" placeholder="Type your destination..." onChange={(ev) => setCreateYourTrip({ ...createYourTrip, child: ev.target.value })} value={createYourTrip.child} />
-                                                {/* <select name="children" class="form-control tm-select" id="inputChildren" onChange = {(ev) => setCreateYourTrip({...createYourTrip, child: ev.target.value})} value ={createYourTrip.child}>
-                                            	<option value="0" selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                            </select>                                         */}
+                                                <input name="child" type="number" min="0" class="form-control" id="inputCity" placeholder="Type your destination..." 
+                                                        onChange={(ev) => setCreateYourTrip({ ...createYourTrip, child: ev.target.value })} value={createYourTrip.child} />
+                                           
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-row tm-search-form-row">
-
                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
                                             <label for="inputCheckIn">Check In Date</label>
                                             <input name="check-in" type="date" class="form-control" id="form-control" placeholder="Check In" value={createYourTrip.checkinDate}
@@ -333,19 +236,14 @@ function MyTripS() {
 
                                         <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
                                             <label for="btnSubmit">&nbsp;</label>
-                                            <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit" onClick={checkAvailable1}>Check Availability</button>
-
+                                            <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit" onClick={checkAvailable1}>Check Weather</button>
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
                         </div>
 
                         {/* <!--------------- Part2 ---------------> */}
-
-
-
                         <div class="container">
                             <div class="tm-container-outer tm-banner-bg2">
                                 <div class="row tm-banner-row tm-banner-row-header">
@@ -363,63 +261,32 @@ function MyTripS() {
                                         <div class="form-row tm-search-form-row">
                                             <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
                                                 <label for="inputChildren">Vehicle</label>
-                                                {/* <select name="vehicle" class="form-control tm-select" id="inputChildren" onChange = {(ev) => setTravel({...travel, vehicle: ev.target.value})} value ={travel.vehicle}>
-                                            	<option value="0" >0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                            </select>                                         */}
+
                                                 <Select
-                                                    //style={{width: `${(8*this.state.selectedOption2.length) + 100}px`}}
                                                     value={vehicle}
                                                     onChange={handleChange('vehicle')}
                                                     options={vehicleChoice}
-
                                                 />
                                             </div>
+
                                             <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
                                                 <label for="inputChildren">Company</label>
-                                                <select name="company" class="form-control tm-select" id="inputChildren" onChange={(ev) => setTravel({ ...travel, company: ev.target.value })} value={travel.company}>
-                                                    <option value="0" >0</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                </select>
-                                                {/* <Select 
-                                                //style={{width: `${(8*this.state.selectedOption2.length) + 100}px`}}
-                                                value={vehicle}
-                                                onChange={handleChange('vehicle')}
-                                                options={vehicleChoice}
-                                                
-                                            />  */}
+                                                <Select
+                                                    value={company}
+                                                    onChange={handleChange('company')}
+                                                    options={companyChoice}
+                                                />
                                             </div>
 
                                             <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
                                                 <label for="inputChildren">Time to Arrive</label>
                                                 <div>
-                                                <input name="time" type="text"  class="form-control" id="inputCity" placeholder="Type your destination..." onChange={(ev) => setTravel({ ...travel, child: ev.target.value })} value={travel.timeToArrive} />
+                                                <input name="time" type="time"  class="form-control" id="inputCity" placeholder="Type your destination..." onChange={(ev) => setTravel({ ...travel, child: ev.target.value })} value={travel.timeToArrive} />
                                                 </div>
-                                                {/* <select name="timeToArrive" class="form-control tm-select" id="inputChildren" onChange = {(ev) => setTravel({...travel, timeToArrive: ev.target.value})} value ={travel.timeToArrive}>
-                                            	<option value="0" selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>    */}
-                                                {/* <Select 
-                                                //style={{width: `${(8*this.state.selectedOption2.length) + 100}px`}}
-                                                value={vehicle}
-                                                onChange={handleChange('vehicle')}
-                                                options={vehicleChoice}
-                                                
-                                            />  */}
-                                            </div>
-                                            <div class="tm-banner-header">
-                                                <label for="btnSubmit">&nbsp;</label>
-                                                <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit" onClick={checkAvailable2}>Check Availability</button>
-                                            </div>
+                                            </div><br/>
+                                            <label></label>
+
+                                    
                                         </div>
                                     </form>
 
@@ -428,9 +295,6 @@ function MyTripS() {
                         </div>
 
                         {/* <!--------------- Part3Hotel ---------------> */}
-
-
-
                         <div class="container">
                             <div class="tm-container-outer tm-banner-bg3">
                                 <div class="row tm-banner-row tm-banner-row-header">
@@ -444,41 +308,26 @@ function MyTripS() {
                                 <div class="row tm-banner-row" id="tm-section-search">
 
                                     <form action="index.html" method="get" class="tm-search-form tm-section-pad-2" autocomplete="off">
-
                                         <div class="form-row tm-search-form-row">
                                             <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
                                                 <label for="inputChildren">Where?</label>
-                                                <select name="children" class="form-control tm-select" id="inputChildren" onChange={(ev) => setChooseHotel({ ...chooseHotel, where: ev.target.value })} value={chooseHotel.where} >
-                                                    <option value="0" >0</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                </select>
+                                                <Select
+                                                    value={hotel}
+                                                    onChange={handleChange('hotel')}
+                                                    options={hotelChoice}
+                                                />
                                             </div>
+
                                             <div class="form-group tm-group-group tm-form-group-pad tm-form-group-3">
                                                 <label for="inputChildren">How many rooms?</label>
-                                                <input name="child" type="number" min="0" class="form-control" id="inputCity" placeholder="Type your destination..." onChange={(ev) => setChooseHotel({ ...chooseHotel, rooms: ev.target.value })} value={chooseHotel.rooms} />
-                                                {/* <select name="children" class="form-control tm-select" id="inputChildren" onChange={(ev) => setChooseHotel({ ...chooseHotel, rooms: ev.target.value })} value={chooseHotel.rooms}>
-                                                    <option value="0" >0</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5" >5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                </select> */}
+                                                <input name="room" type="number" min="0" max="10" class="form-control" id="inputCity" placeholder="Type your destination..." 
+                                                        onChange={(ev) => setChooseHotel({ ...chooseHotel, rooms: ev.target.value })} value={chooseHotel.rooms} />
                                             </div>
 
                                             <div class="tm-banner-header">
                                                 <label for="btnSubmit">&nbsp;</label>
                                                 <button type="submit" class="btn btn-primary tm-btn tm-btn-search text-uppercase" id="btnSubmit"
-                                                 onClick = {confirmHotel}
-                                                >Confirm Your Hotel</button>
+                                                 onClick = {confirmHotel}>Confirm Your Hotel</button>
                                             </div>
                                         </div>
                                     </form>

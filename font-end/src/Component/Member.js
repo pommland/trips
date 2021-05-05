@@ -102,7 +102,7 @@ function Member() {
                                 <div class="image-wrapper">
                                     <img class="img-fluid" src="images/Pooh.png" alt="alternative" />
                                 </div> 
-                                <p class="p-large">Kanokvan Sangvaraporn</p>
+                                <p class="p-large">Nitipat Boongate</p>
                                 <p class="job-title">Back-End Developer</p>
                                 <span class="social-icons">
                                     <span class="fa-stack">

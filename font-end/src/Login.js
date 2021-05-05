@@ -157,9 +157,7 @@ function Login() {
                 value={password}/>
               </div>
               <input type="submit" value="Login" class="btn-signin solid" />
-
             </form>
-
 
             {/* <!-------------------------- SIGN UP!!!! ---------------------------> */}
             <form action="#" class="sign-up-form" onSubmit={handleSubmit_r}>
@@ -195,7 +193,6 @@ function Login() {
             </form>
           </div>
         </div>
-
         <div class="panels-container">
           <div class="panel-login left-panel">
             <div class="content">
