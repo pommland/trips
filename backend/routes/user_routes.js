@@ -32,7 +32,7 @@ router.route('/').get((req, res) => { // Get All User
 router.route('/register').post( // register User
   validSign,registerController);
 
-router.post('/activation/:token', activationController) // activate user
+router.get('/activation/:token', activationController) // activate user
 
 router.route('/login').post( // Add User
   validLogin,signinController);
