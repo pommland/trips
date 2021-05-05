@@ -9,7 +9,8 @@ exports.addController = (req, res) => {
     address, 
     Tel,
     description,
-    available } = req.body;
+    available,
+    img } = req.body;
 
     const newHotel = new Hotel({
         name,
@@ -18,7 +19,8 @@ exports.addController = (req, res) => {
         address, 
         Tel,
         description,
-        available
+        available,
+        img
      });
 
      newHotel.save((err, hotel) => {
@@ -69,6 +71,7 @@ exports.updateController = (req,res) => {
         hotel.Tel           = req.body.Tel;
         hotel.description   = req.body.description;
         hotel.available     = req.body.available;
+        hotel.img           = req.body.img;
         hotel.save()
           .then(() => res.json('Hotel updated!'))
           .catch(err => res.status(400).json('Error: ' + err));

@@ -8,7 +8,8 @@ const hotelSchema = new Schema({
   address : {type : String , required: true}, 
   Tel : {type : String, required: true},
   description : {type : String, required: true},
-  available : {type : String, required: true}
+  available : {type : String, required: true},
+  img : {type : String,default : "/img/icon-uploadimg.png"}
   }, 
   {timestamps: true,}
   
